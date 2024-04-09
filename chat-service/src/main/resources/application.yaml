@@ -1,0 +1,37 @@
+spring:
+  security:
+    jwt:
+      key: bcdedit12312as
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/chat?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+    hikari:
+      idle-timeout: 60000
+      maximum-pool-size: 30
+      minimum-idle: 2
+      auto-commit: true
+  mail:
+    host: smtp.163.com
+    username: m19375389028@163.com
+    password: CWTKPYMYIXUIBCPT
+    port: 465
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.ssl.trust: smtp.163.com
+  rabbitmq:
+    addresses: localhost:5672
+    username: guest
+    password: guest
+    virtual-host: /
+  minio:
+    endpoint: http://localhost:9000
+    username: "minio"
+    password: "password"
+#mybatis-plus:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

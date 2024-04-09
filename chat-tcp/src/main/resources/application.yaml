@@ -1,0 +1,19 @@
+spring:
+  host: 127.0.0.1
+  port: 5672
+  virtualHost: /
+  userName: guest
+  password: guest
+
+  rabbitmq:
+    addresses: localhost:5672
+    username: guest
+    password: guest
+    virtual-host: /
+httpclient:
+  maxTotal: 100
+  defaultMaxPerRoute: 50
+  connectTimeout: 2000
+  connectionRequestTimeout: 2000
+  socketTimeout: 5000
+  staleConnectionCheckEnabled: true
