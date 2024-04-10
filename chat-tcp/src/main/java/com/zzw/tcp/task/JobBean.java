@@ -3,6 +3,7 @@ package com.zzw.tcp.task;
 
 
 import com.zzw.tcp.service.LimServer;
+import com.zzw.tcp.service.LimWebSocketServer;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.context.annotation.Lazy;
@@ -19,7 +20,7 @@ public class JobBean extends QuartzJobBean {
 
 
         new LimServer().start();
-//        new LimWebSocketServer().start();
+        new LimWebSocketServer().start();
 
     }
 

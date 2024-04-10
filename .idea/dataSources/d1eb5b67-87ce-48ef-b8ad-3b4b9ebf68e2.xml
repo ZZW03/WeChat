@@ -22,6 +22,5 @@
     <schema id="15" parent="1" name="7"/>
     <schema id="16" parent="1" name="8"/>
     <schema id="17" parent="1" name="9"/>
-    <collection id="18" parent="2" name="1"/>
   </database-model>
 </dataSource>

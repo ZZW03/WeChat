@@ -22,6 +22,7 @@ public class WebSocketMessageEncoder extends MessageToMessageEncoder<MessagePack
     protected void encode(ChannelHandlerContext ctx, MessagePack msg, List<Object> out)  {
 
         try {
+            System.out.println(456);
             String s = JSONObject.toJSONString(msg);
             ByteBuf byteBuf = Unpooled.directBuffer(8+s.length());
             byte[] bytes = s.getBytes();
@@ -30,6 +31,7 @@ public class WebSocketMessageEncoder extends MessageToMessageEncoder<MessagePack
             byteBuf.writeBytes(bytes);
             out.add(new BinaryWebSocketFrame(byteBuf));
         }catch (Exception e){
+            System.out.println(123);
             e.printStackTrace();
         }
 

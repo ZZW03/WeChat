@@ -1,20 +1,15 @@
 package com.zzw.tcp.utils;
 
 import io.netty.channel.socket.nio.NioSocketChannel;
-import jakarta.annotation.Resource;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
 
 @Component
 public class SocketHolder {
 
-    @Resource
-    StringRedisTemplate stringRedisTemplate;
-
-    private static final Map<Integer, NioSocketChannel> CHANNELS = new ConcurrentHashMap<>();
+    public  Map<Integer, NioSocketChannel> CHANNELS = new ConcurrentHashMap<>();
 
     //在请求联机的时候 将chanel 存入到map中  便于之后查找
     public void put(Integer ID,
