@@ -4,12 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="" />
+    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="每天一点点">
+      <change afterPath="$PROJECT_DIR$/chat-tcp/src/test/java/com/zzw/TcpServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1eb5b67-87ce-48ef-b8ad-3b4b9ebf68e2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d1eb5b67-87ce-48ef-b8ad-3b4b9ebf68e2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/handel/NettyHandlerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/service/LimServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/service/LimServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/test/java/com/zzw/ChatServiceApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -30,43 +61,50 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/chat-fronent/package.json" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2eriLXyS9jDry5mUO0vgxqk7mtv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/study/java项目/WeChat/demo/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "ssh.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/study/java_Project/WeChat&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "redis"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;redis&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\study\java项目\WeChat\demo\src\main\resources" />
@@ -75,19 +113,71 @@
       <recent name="D:\study\java项目\WeChat\chat-common" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zzw.common.model" />
+      <recent name="com.zzw.common.pack" />
+      <recent name="com.zzw.tcp.handel" />
       <recent name="com.zzw" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.TcpServiceApplication">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="WeChat" />
+  <component name="RunManager" selected="JUnit.TcpServiceApplicationTests.contextLoads">
+    <configuration name="ChatServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chat-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zzw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zzw" />
+      <option name="MAIN_CLASS_NAME" value="com.zzw.ChatServiceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="WeChat" />
-      <option name="filePath" />
+    <configuration name="ChatServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chat-tcp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zzw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zzw" />
+      <option name="MAIN_CLASS_NAME" value="com.zzw.ChatServiceApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TcpServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chat-tcp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zzw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zzw" />
+      <option name="MAIN_CLASS_NAME" value="com.zzw.TcpServiceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TcpServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chat-tcp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zzw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zzw" />
+      <option name="MAIN_CLASS_NAME" value="com.zzw.TcpServiceApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -95,19 +185,6 @@
     <configuration name="未命名" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="chat-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzw.ChatServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChatServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="chat-tcp" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzw.tcp.ChatServiceApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.zzw.tcp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -145,29 +222,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/chat-fronent/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="npm.dev" />
+      <item itemvalue="JUnit.ChatServiceApplicationTests" />
+      <item itemvalue="JUnit.ChatServiceApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.TcpServiceApplicationTests" />
+      <item itemvalue="JUnit.TcpServiceApplicationTests.contextLoads" />
       <item itemvalue="Spring Boot.未命名" />
       <item itemvalue="Spring Boot.ChatServiceApplication" />
-      <item itemvalue="Spring Boot.ChatServiceApplication (1)" />
       <item itemvalue="Spring Boot.TcpServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TcpServiceApplicationTests.contextLoads" />
+        <item itemvalue="JUnit.TcpServiceApplicationTests" />
+        <item itemvalue="JUnit.ChatServiceApplicationTests" />
+        <item itemvalue="JUnit.ChatServiceApplicationTests.contextLoads" />
         <item itemvalue="Spring Boot.TcpServiceApplication" />
-        <item itemvalue="Spring Boot.ChatServiceApplication (1)" />
-        <item itemvalue="npm.dev" />
-        <item itemvalue="Spring Boot.ChatServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -181,11 +251,43 @@
       <updated>1694875510617</updated>
       <workItem from="1712669042953" duration="1316000" />
       <workItem from="1712670372698" duration="17000" />
-      <workItem from="1712670393746" duration="314000" />
+      <workItem from="1712670393746" duration="1201000" />
+      <workItem from="1712671745498" duration="102000" />
+      <workItem from="1712671985213" duration="120000" />
+      <workItem from="1712719323473" duration="5803000" />
     </task>
+    <task id="LOCAL-00001" summary="tcp">
+      <option name="closed" value="true" />
+      <created>1712670915913</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712670915913</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tcp" />
+    <MESSAGE value="每天一点点" />
+    <option name="LAST_COMMIT_MESSAGE" value="每天一点点" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
