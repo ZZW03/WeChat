@@ -7,6 +7,7 @@ import com.zzw.Account.Dao.AccountDetailMapper;
 import com.zzw.Account.Entiy.AccountDetails;
 import com.zzw.Account.Service.AccountDetailService;
 import com.zzw.common.model.RestBean;
+import com.zzw.common.model.enums.SystemError;
 import com.zzw.common.model.enums.UserError;
 import com.zzw.common.model.req.account.AccountDetailsReq;
 import org.springframework.beans.BeanUtils;
@@ -30,7 +31,7 @@ public class AccountDetailServiceImpl extends ServiceImpl<AccountDetailMapper, A
         if (this.update(accountDetails,wrapper)) {
             return RestBean.success("修改成功").ToJSON();
         }else {
-            RestBean.error(UserError.USER_SYSTEM_ERROR.getCode(), UserError.USER_SYSTEM_ERROR.getError()).ToJSON();
+            RestBean.error(SystemError.USER_SYSTEM_ERROR.getCode(), SystemError.USER_SYSTEM_ERROR.getError()).ToJSON();
         }
         return RestBean.success().ToJSON();
     }

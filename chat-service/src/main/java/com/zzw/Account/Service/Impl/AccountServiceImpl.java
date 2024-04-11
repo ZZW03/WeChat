@@ -11,6 +11,7 @@ import com.zzw.Account.Service.AccountService;
 import com.zzw.Utils.FlowUtil;
 import com.zzw.common.Const;
 import com.zzw.common.model.RestBean;
+import com.zzw.common.model.enums.SystemError;
 import com.zzw.common.model.enums.UserError;
 import com.zzw.common.model.req.account.*;
 import com.zzw.common.model.resp.SendCodeResp;
@@ -109,7 +110,7 @@ public class AccountServiceImpl  extends ServiceImpl<AccountMapper, Account> imp
             if(this.update(account,wrapper)){
                 return RestBean.success("修改成功").ToJSON();
             }else {
-                return RestBean.error(UserError.USER_SYSTEM_ERROR.getCode(), UserError.USER_SYSTEM_ERROR.getError()).ToJSON();
+                return RestBean.error(SystemError.USER_SYSTEM_ERROR.getCode(), SystemError.USER_SYSTEM_ERROR.getError()).ToJSON();
             }
         }else{
             return RestBean.error(UserError.USER_RESET_PASSWORD_ERROR.getCode(), UserError.USER_RESET_PASSWORD_ERROR.getError()).ToJSON();
@@ -159,7 +160,7 @@ public class AccountServiceImpl  extends ServiceImpl<AccountMapper, Account> imp
                 accountDetailService.save(accountDetails);
                 return RestBean.success("注册成功").ToJSON();
             }else{
-                return RestBean.error(UserError.USER_SYSTEM_ERROR.getCode(), UserError.USER_SYSTEM_ERROR.getError()).ToJSON();
+                return RestBean.error(SystemError.USER_SYSTEM_ERROR.getCode(), SystemError.USER_SYSTEM_ERROR.getError()).ToJSON();
             }
         }else{
             return RestBean.error(UserError.USER_MODIFY_CODE_ERROR.getCode(), UserError.USER_MODIFY_CODE_ERROR.getError()).ToJSON();
@@ -185,7 +186,7 @@ public class AccountServiceImpl  extends ServiceImpl<AccountMapper, Account> imp
             if (this.update(account,wrapper)) {
                 return RestBean.success("密码修改完成").ToJSON();
             }else{
-                return RestBean.error(UserError.USER_SYSTEM_ERROR.getCode(), UserError.USER_SYSTEM_ERROR.getError()).ToJSON();
+                return RestBean.error(SystemError.USER_SYSTEM_ERROR.getCode(), SystemError.USER_SYSTEM_ERROR.getError()).ToJSON();
             }
 
         }

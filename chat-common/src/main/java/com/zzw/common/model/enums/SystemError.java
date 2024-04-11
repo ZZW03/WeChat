@@ -3,9 +3,10 @@ package com.zzw.common.model.enums;
 import lombok.Getter;
 
 @Getter
-public enum Error {
+public enum SystemError {
 
         NOT_FIND(404,"没有找到"),
+        USER_SYSTEM_ERROR(401,"系统错误，稍后重试"),
 
     ;
 
@@ -13,7 +14,7 @@ public enum Error {
 
     private final String error;
 
-    Error(int code, String error) {
+    SystemError(int code, String error) {
         this.code = code;
         this.error = error;
     }

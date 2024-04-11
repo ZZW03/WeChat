@@ -7,6 +7,8 @@ import {ElMessage} from "element-plus";
 import Enroll from "@/views/welcome/Enroll.vue";
 import UserSetting from "@/views/index/UserSetting.vue";
 import ChangePsw from "@/views/index/ChangePsw.vue";
+import FriendList from "@/views/index/FriendList.vue";
+import showInformation from "@/views/index/showInformation.vue";
 
 
 
@@ -51,6 +53,18 @@ const router = createRouter({
                     path:'changepsw',
                     name:'changepsw',
                     component: ChangePsw
+                },
+                {
+                    path:'friendList',
+                    name:'friendList',
+                    component: FriendList,
+                    children:[
+                        {
+                            path:'/showInformation',
+                            name:'showInformation',
+                            component: showInformation,
+                        }
+                    ]
                 }
 
             ]

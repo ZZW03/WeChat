@@ -12,7 +12,7 @@ import com.zzw.Images.Service.ImageService;
 import com.zzw.Utils.FlowUtil;
 import com.zzw.common.Const;
 import com.zzw.common.model.RestBean;
-import com.zzw.common.model.enums.Error;
+import com.zzw.common.model.enums.SystemError;
 import com.zzw.common.model.enums.ImageError;
 import io.minio.*;
 import io.minio.errors.*;
@@ -118,7 +118,7 @@ public class ImageServiceimp extends ServiceImpl<ImageStoreDao, StoreImage> impl
 
         if(imagePath.length() <= 13) {
             response.setStatus(404);
-            stream.println(RestBean.error(Error.NOT_FIND.getCode(), Error.NOT_FIND.getError()).toString());
+            stream.println(RestBean.error(SystemError.NOT_FIND.getCode(), SystemError.NOT_FIND.getError()).toString());
         } else {
             try {
                 this.fetchImageFromCache(stream, imagePath);
@@ -128,7 +128,7 @@ public class ImageServiceimp extends ServiceImpl<ImageStoreDao, StoreImage> impl
             } catch (ErrorResponseException e) {
                 if(e.response().code() == 404) {
                     response.setStatus(404);
-                    stream.println(RestBean.error(Error.NOT_FIND.getCode(), Error.NOT_FIND.getError()).toString());
+                    stream.println(RestBean.error(SystemError.NOT_FIND.getCode(), SystemError.NOT_FIND.getError()).toString());
                 } else {
                     log.error("从Minio获取图片出现异常: "+e.getMessage(), e);
                 }
@@ -143,7 +143,7 @@ public class ImageServiceimp extends ServiceImpl<ImageStoreDao, StoreImage> impl
 
         if(imagePath.length() <= 13) {
             response.setStatus(404);
-            stream.println(RestBean.error(Error.NOT_FIND.getCode(), Error.NOT_FIND.getError()).toString());
+            stream.println(RestBean.error(SystemError.NOT_FIND.getCode(), SystemError.NOT_FIND.getError()).toString());
         } else {
             try {
                 this.fetchImageFromMinio(stream, imagePath);
@@ -153,7 +153,7 @@ public class ImageServiceimp extends ServiceImpl<ImageStoreDao, StoreImage> impl
             } catch (ErrorResponseException e) {
                 if(e.response().code() == 404) {
                     response.setStatus(404);
-                    stream.println(RestBean.error(Error.NOT_FIND.getCode(), Error.NOT_FIND.getError()).toString());
+                    stream.println(RestBean.error(SystemError.NOT_FIND.getCode(), SystemError.NOT_FIND.getError()).toString());
                 } else {
                     log.error("从Minio获取图片出现异常: "+e.getMessage(), e);
                 }

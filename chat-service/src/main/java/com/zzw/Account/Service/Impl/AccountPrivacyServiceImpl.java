@@ -7,6 +7,7 @@ import com.zzw.Account.Dao.AccountPrivacyDao;
 import com.zzw.Account.Entiy.AccountPrivacy;
 import com.zzw.Account.Service.AccountPrivacyService;
 import com.zzw.common.model.RestBean;
+import com.zzw.common.model.enums.SystemError;
 import com.zzw.common.model.enums.UserError;
 import com.zzw.common.model.req.account.UpdatePrivacyReq;
 import org.springframework.beans.BeanUtils;
@@ -31,7 +32,7 @@ public class AccountPrivacyServiceImpl extends ServiceImpl<AccountPrivacyDao, Ac
         if (this.update(accountPrivacy,wrapper)) {
             return RestBean.success("修改成功").ToJSON();
         } else {
-            return RestBean.error(UserError.USER_SYSTEM_ERROR.getCode(), UserError.USER_SYSTEM_ERROR.getError()).ToJSON();
+            return RestBean.error(SystemError.USER_SYSTEM_ERROR.getCode(), SystemError.USER_SYSTEM_ERROR.getError()).ToJSON();
         }
     }
 }

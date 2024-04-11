@@ -96,7 +96,7 @@ get('account/getAccount',(data) =>{
                 <el-icon><Message /></el-icon>
                 <template #title>查看消息</template>
               </el-menu-item>
-              <el-menu-item index="2">
+              <el-menu-item index="/index/friendList">
                 <el-icon><User /></el-icon>
                 <template #title>查看好友</template>
               </el-menu-item >
@@ -202,8 +202,8 @@ get('account/getAccount',(data) =>{
               </el-sub-menu>
             </el-menu>
           </el-scrollbar>
-
         </el-aside>
+
         <el-main id="main-container" >
           <el-scrollbar style="height: calc(100vh - 60px)">
             <router-view v-slot="{ Component }">
@@ -213,6 +213,7 @@ get('account/getAccount',(data) =>{
             </router-view>
           </el-scrollbar>
         </el-main>
+
       </el-container>
     </el-container>
   </div>
