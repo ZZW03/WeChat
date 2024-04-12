@@ -18,4 +18,5 @@ public class AccountDetails {
     String  accountAge = "18";
     String  accountQq = "";
     String  accountPhone = "";
+    String  accountDesc;
 }

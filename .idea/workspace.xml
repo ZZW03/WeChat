@@ -4,24 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="开始着手写好友业务">
+    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="前端的用户好友列表">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475/storage_v2/_src_/schema/chat.WJMuAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475/storage_v2/_src_/schema/chat.WJMuAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/codeUtils/WebSocketMessageEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/codeUtils/WebSocketMessageEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/net.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/net.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/Components/TopicEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/Components/TopicEdit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/Components/FriendDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/Components/FriendDetails.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/index/FriendList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/index/FriendList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/index/showInformation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/index/ShowInformation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/Impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/Impl/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Config/AuthorizeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Config/AuthorizeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/index/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/index/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/index/ShowInformation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/index/FriendInformation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/index/UserSetting.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/index/UserSetting.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Entiy/AccountDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Entiy/AccountDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Controller/FriendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Controller/FriendController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/FriendshipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/FriendshipService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Entiy/FriendshipReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Entiy/FriendshipReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/FriendshipReqService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/FriendshipReqService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/impl/FriendshipReqServiceable.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/impl/FriendshipReqServiceable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/impl/FriendshipServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/impl/FriendshipServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +236,7 @@
       <workItem from="1712719323473" duration="11201000" />
       <workItem from="1712766493977" duration="37000" />
       <workItem from="1712834450710" duration="10560000" />
-      <workItem from="1712893904209" duration="5794000" />
+      <workItem from="1712893904209" duration="17276000" />
     </task>
     <task id="LOCAL-00001" summary="tcp">
       <option name="closed" value="true" />
@@ -281,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712848518945</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="前端的用户好友列表">
+      <option name="closed" value="true" />
+      <created>1712899853938</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712899853938</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +307,8 @@
     <MESSAGE value="tcp" />
     <MESSAGE value="每天一点点" />
     <MESSAGE value="开始着手写好友业务" />
-    <option name="LAST_COMMIT_MESSAGE" value="开始着手写好友业务" />
+    <MESSAGE value="前端的用户好友列表" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端的用户好友列表" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

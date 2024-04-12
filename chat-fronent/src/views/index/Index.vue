@@ -21,6 +21,7 @@ import {get} from "@/net/net";
 import {userdetailstore} from "@/store/userdetailstore";
 import {userstore} from "@/store/userstore";
 import {userprivacystore} from "@/store/userprivacystore";
+import router from "@/router/router";
 
 const  store = userstore
 const  detailstore = userdetailstore()
@@ -64,7 +65,7 @@ get('account/getAccount',(data) =>{
         <el-dropdown class="User-icon">
             <el-avatar class="User-icon" :src="detailstore.avatarUrl"/>
             <template #dropdown>
-              <el-dropdown-item>
+              <el-dropdown-item @click="router.push({name:'usersetting'})">
                 <el-icon><Edit /></el-icon>
                 个人设置
               </el-dropdown-item>

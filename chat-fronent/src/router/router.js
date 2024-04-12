@@ -8,7 +8,8 @@ import Enroll from "@/views/welcome/Enroll.vue";
 import UserSetting from "@/views/index/UserSetting.vue";
 import ChangePsw from "@/views/index/ChangePsw.vue";
 import FriendList from "@/views/index/FriendList.vue";
-import showInformation from "@/views/index/showInformation.vue";
+import FriendInformation from "@/views/index/FriendInformation.vue";
+import GroupInformation from "@/views/index/GroupInformation.vue";
 
 
 
@@ -60,9 +61,14 @@ const router = createRouter({
                     component: FriendList,
                     children:[
                         {
-                            path:'/showInformation',
-                            name:'showInformation',
-                            component: showInformation,
+                            path:'/friendInformation',
+                            name:'friendInformation',
+                            component: FriendInformation,
+                        },
+                        {
+                            path:'/groupInformation',
+                            name:'groupInformation',
+                            component: GroupInformation,
                         }
                     ]
                 }

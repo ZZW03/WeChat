@@ -25,20 +25,19 @@ get('/friend/SelShip',(data)=>{
         <el-button :icon="Plus" size="default" style="margin-left: 2%;margin-top: 5%"></el-button>
         </div>
         <div style="width: 100%;">
-          <el-button @click="router.push({name:'showInformation'})" class="information" style="width: 85%;border: none;margin-left:10%;margin-top:5% ; "  >好友通知 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<el-icon><ArrowRight /></el-icon> </el-button>
-          <el-button class="information" style="width: 85%;border: none;margin-left:10%;margin-top:5% ; "  >群聊通知 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<el-icon><ArrowRight /></el-icon> </el-button>
+          <el-button @click="router.push({name:'friendInformation'})" class="information" style="width: 85%;border: none;margin-left:10%;margin-top:5% ; "  >好友通知 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<el-icon><ArrowRight /></el-icon> </el-button>
+          <el-button @click="router.push({name:'groupInformation'})"  class="information" style="width: 85%;border: none;margin-left:10%;margin-top:5% ; "  >群聊通知 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<el-icon><ArrowRight /></el-icon> </el-button>
         </div>
         <el-divider/>
-
-        <el-scrollbar style="height: calc(100vh - 60px)">
-          <el-menu style="height: calc(100vh - 60px)"
+        <el-scrollbar style="height: calc(100vh - 200px)">
+          <el-menu style="height: calc(100vh - 160px)"
           >
             <el-sub-menu >
               <template #title>
                 <el-icon>
                   <User />
                 </el-icon>
-                <b>好友列表</b>
+                <span style="font-family: Microsoft JhengHei,serif;color: grey">好友列表</span>
               </template>
               <el-menu-item  class="item" v-for="item in ListData">
                 <FriendDetails :Id="item.toId"/>

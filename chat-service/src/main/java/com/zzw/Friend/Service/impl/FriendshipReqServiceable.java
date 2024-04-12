@@ -1,5 +1,7 @@
 package com.zzw.Friend.Service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zzw.Account.Entiy.Account;
 import com.zzw.Account.Service.AccountService;
@@ -20,6 +22,12 @@ public class FriendshipReqServiceable extends ServiceImpl<FriendshipReqMapper, F
 
     @Resource
     AccountService accountService;
+
+    @Override
+    public String SelAllReq(Integer FromId) {
+        Wrapper<FriendshipReq> wrapper = new QueryWrapper<FriendshipReq>().eq("to_id",FromId);
+        return RestBean.success(this.list(wrapper)).ToJSON();
+    }
 
     @Override
     public String AddReq(Integer FromId, AddFriendReq req) {

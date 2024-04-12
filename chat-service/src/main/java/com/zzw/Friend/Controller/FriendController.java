@@ -32,4 +32,9 @@ public class FriendController {
     public String SelShip(@RequestAttribute(Const.ACCOUNT.ATTR_USER_ID) Integer FromId){
         return  shipService.GetAllShip(FromId);
     }
+
+    @GetMapping("SelAllReq")
+    public String SelAllReq(@RequestAttribute(Const.ACCOUNT.ATTR_USER_ID)Integer FromId){
+        return reqService.SelAllReq(FromId);
+    }
 }

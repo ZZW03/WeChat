@@ -6,5 +6,6 @@ import com.zzw.common.model.req.friend.AddFriendReq;
 
 public interface FriendshipReqService extends IService<FriendshipReq> {
 
+    String SelAllReq(Integer FromId);
     String AddReq(Integer FromId, AddFriendReq req);
 }

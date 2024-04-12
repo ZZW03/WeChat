@@ -3,7 +3,9 @@
 </script>
 
 <template>
-123
+<div>
+  群聊通知
+</div>
 </template>
 
 <style scoped>
