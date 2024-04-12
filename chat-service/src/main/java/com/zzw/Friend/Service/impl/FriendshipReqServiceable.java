@@ -31,7 +31,7 @@ public class FriendshipReqServiceable extends ServiceImpl<FriendshipReqMapper, F
         }
 
         if(account.getAccountId().equals(FromId)){
-            System.out.println(123);
+
             return RestBean.error(FriendShipError.CANT_ADD_YOURSELF.getCode(),FriendShipError.CANT_ADD_YOURSELF.getError()).ToJSON();
         }
 

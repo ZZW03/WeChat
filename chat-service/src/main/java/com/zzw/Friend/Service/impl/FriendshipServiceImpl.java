@@ -1,13 +1,18 @@
 package com.zzw.Friend.Service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zzw.Account.Entiy.Account;
 import com.zzw.Friend.Dao.FriendshipMapper;
 import com.zzw.Friend.Entiy.Friendship;
 import com.zzw.Friend.Service.FriendshipService;
 import com.zzw.common.model.RestBean;
 import com.zzw.common.model.enums.FriendShipError;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class FriendshipServiceImpl extends ServiceImpl<FriendshipMapper, Friendship> implements FriendshipService {
@@ -37,5 +42,11 @@ public class FriendshipServiceImpl extends ServiceImpl<FriendshipMapper, Friends
         }
 
         return RestBean.success().ToJSON();
+    }
+
+    @Override
+    public String GetAllShip(Integer FromId) {
+        Wrapper<Friendship> wrapper = new QueryWrapper<Friendship>().eq("from_id", FromId);
+        return RestBean.success(this.list(wrapper)).ToJSON();
     }
 }

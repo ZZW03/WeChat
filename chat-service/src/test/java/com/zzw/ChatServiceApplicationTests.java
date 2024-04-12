@@ -18,7 +18,7 @@ class ChatServiceApplicationTests {
 	@Test
 	void contextLoads() {
 		if (accountService.getById(2) == null){
-			System.out.println(123);
+
 		}
 	}
 

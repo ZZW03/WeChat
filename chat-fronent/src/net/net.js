@@ -23,7 +23,7 @@ function internalPost(url, data, headers, success, failure = defaultFailure , er
 //get请求 内部调用
 function internalGet(url, headers, success, failure = defaultFailure, error = defaultError){
     axios.get(url, { withCredentials: true,headers: headers }).then(({data}) => {
-        if(data.code == 200)
+        if(data.code === 200)
             success(data)
         else
             failure(data.message, data.code, url)

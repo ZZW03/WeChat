@@ -23,7 +23,7 @@ public class AuthorizeService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println(username);
+
         //通过username 查询是否存在用户
         Account account = accountService.FindByName(username);
 

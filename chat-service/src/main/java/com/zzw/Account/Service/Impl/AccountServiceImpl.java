@@ -182,7 +182,7 @@ public class AccountServiceImpl  extends ServiceImpl<AccountMapper, Account> imp
         Account account = this.FindByNameOrByEmail(req.getEmail());
         if (req.getNewPassword().equals(req.getNewPasswordRepeat())){
             account.setAccountPassword(req.getNewPassword());
-            System.out.println(account);
+
             if (this.update(account,wrapper)) {
                 return RestBean.success("密码修改完成").ToJSON();
             }else{

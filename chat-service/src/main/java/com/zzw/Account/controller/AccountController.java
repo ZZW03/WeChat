@@ -41,7 +41,7 @@ public class AccountController {
     }
     @PostMapping("enRoll")
     public String EnRoll(@RequestBody EnRollReq req){
-        System.out.println(req);
+
         return accountService.enRoll(req);
     }
 
@@ -59,6 +59,13 @@ public class AccountController {
     public String getDetail(@RequestAttribute(Const.ACCOUNT.ATTR_USER_ID) Integer id){
         return RestBean.success(accountDetailService.GetDetail(id)).ToJSON();
     }
+
+    @GetMapping("getOtherDetail")
+    public String getOtherDetail(Integer id){
+        return RestBean.success(accountDetailService.GetDetail(id)).ToJSON();
+    }
+
+
     @GetMapping("getAccount")
     public String getAccount(@RequestAttribute(Const.ACCOUNT.ATTR_USER_ID) Integer id){
         return accountService.getAccount(id);
@@ -73,7 +80,7 @@ public class AccountController {
     @PostMapping("updatePrivacy")
     public String updatePrivacy(@RequestBody UpdatePrivacyReq req,
                                 @RequestAttribute(Const.ACCOUNT.ATTR_USER_ID) Integer id){
-        System.out.println(req);
+
         return accountPrivacyService.updatePrivacy(req,id);
 
     }
@@ -81,6 +88,8 @@ public class AccountController {
     public String getPrivacy(@RequestAttribute(Const.ACCOUNT.ATTR_USER_ID) Integer id){
             return RestBean.success(accountPrivacyService.getById(id)).ToJSON();
     }
+
+
 
 
 }

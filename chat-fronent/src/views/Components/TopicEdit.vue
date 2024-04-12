@@ -3,7 +3,6 @@ import {Check, Document} from "@element-plus/icons-vue";
 import {computed, reactive, ref} from "vue";
 import {Delta, Quill, QuillEditor} from "@vueup/vue-quill";
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
-
 import ImageResize from "quill-image-resize-vue";
 import { ImageExtend, QuillWatch } from "quill-image-super-solution-module";
 import {accessHeader, get, post, post1} from "@/net/net";
