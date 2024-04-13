@@ -1085,8 +1085,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="299" parent="1" name="chat">
       <Current>1</Current>
-      <IntrospectionTimestamp>2024-04-13.04:58:57</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-04-12.12:58:57</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2024-04-13.20:33:33</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-04-13.04:33:33</LocalIntrospectionTimestamp>
       <CollationName>utf16_general_ci</CollationName>
     </schema>
     <user id="300" parent="1" name="nacos"/>
@@ -1366,7 +1366,7 @@ to_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="361" parent="314" name="message_key">
+    <column id="361" parent="314" name="message_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1383,39 +1383,43 @@ to_id</ColNames>
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <index id="365" parent="314" name="PRIMARY">
-      <ColNames>message_key</ColNames>
+    <column id="365" parent="314" name="message_send_time">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <index id="366" parent="314" name="PRIMARY">
+      <ColNames>message_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="366" parent="314" name="PRIMARY">
+    <key id="367" parent="314" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="367" parent="315" name="message_key">
+    <column id="368" parent="315" name="message_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="368" parent="315" name="form_id">
+    <column id="369" parent="315" name="form_id">
       <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="369" parent="315" name="to_id">
+    <column id="370" parent="315" name="to_id">
       <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="370" parent="315" name="owner_id">
+    <column id="371" parent="315" name="owner_id">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <index id="371" parent="315" name="PRIMARY">
-      <ColNames>message_key</ColNames>
+    <index id="372" parent="315" name="PRIMARY">
+      <ColNames>message_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="372" parent="315" name="PRIMARY">
+    <key id="373" parent="315" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

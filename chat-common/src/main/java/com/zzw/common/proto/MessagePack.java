@@ -8,15 +8,14 @@ import java.io.Serializable;
 @Data
 public class MessagePack<T> implements Serializable {
 
-    private String userId;
+    private Integer userId;
 
-    private String toId;
+    private Integer toId;
 
-    private String messageId;
+    private Integer messageId;
 
     private Integer command;
 
     private T data;
-
 
 }

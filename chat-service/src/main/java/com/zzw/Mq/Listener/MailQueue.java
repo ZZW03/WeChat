@@ -1,4 +1,4 @@
-package com.zzw.Listener;
+package com.zzw.Mq.Listener;
 
 
 import com.zzw.common.Const;

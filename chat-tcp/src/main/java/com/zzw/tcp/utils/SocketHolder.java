@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class SocketHolder {
 
-    public  Map<Integer, NioSocketChannel> CHANNELS = new ConcurrentHashMap<>();
+    public static Map<Integer, NioSocketChannel> CHANNELS = new ConcurrentHashMap<>();
 
     //在请求联机的时候 将chanel 存入到map中  便于之后查找
     public void put(Integer ID,

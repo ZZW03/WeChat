@@ -113,6 +113,7 @@ public class SecurityConfig {
         authorizeVo.setName(account.getAccountUsername());
         authorizeVo.setRole(account.getAccountRole());
         authorizeVo.setToken(token);
+        authorizeVo.setId(account.getAccountId());
         authorizeVo.setCreateTime(account.getRegisterTime());
         response.getWriter().write(RestBean.success(authorizeVo).ToJSON());
     }

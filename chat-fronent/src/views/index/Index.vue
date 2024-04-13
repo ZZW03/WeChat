@@ -1,8 +1,7 @@
 <script setup>
 
 
-
-import {reactive, ref} from "vue";
+import {inject, reactive, ref} from "vue";
 import {
   Aim, Avatar,
   Back,
@@ -22,14 +21,15 @@ import {userdetailstore} from "@/store/userdetailstore";
 import {userstore} from "@/store/userstore";
 import {userprivacystore} from "@/store/userprivacystore";
 import router from "@/router/router";
+import {ListenMessage, socketLogin} from "@/net/Socket";
+import {websocketstore} from "@/store/websocketstore";
 
 const  store = userstore
 const  detailstore = userdetailstore()
 const  loading = ref(true)
-const searchInput = reactive({
-  type:"1",
-  text:""
-})
+
+
+const socketStore = websocketstore();
 
 
 function userLogout() {
@@ -37,8 +37,18 @@ function userLogout() {
     logout()
 }
 
+
 get('account/getAccount',(data) =>{
   store.user = data.data
+  socketStore.initializeWebSocket();
+
+  socketStore.socket.onopen = () => {
+
+    socketLogin(data.data.id,socketStore.socket)
+    ListenMessage(socketStore.socket)
+  };
+
+
   get('/account/getDetail', (data) => {
     detailstore.userdetail = data.data
     get('/account/getPrivacy', (data) => {

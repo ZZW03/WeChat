@@ -1,7 +1,7 @@
 import {deleteAccessToken, storeAccessToken} from "@/net/header";
 import {ElMessage} from "element-plus";
 import {get, post, postE} from "@/net/net";
-import router from "@/router/router";
+
 
 
 /*
@@ -12,7 +12,7 @@ import router from "@/router/router";
 *   4.返回data 通过storeAccessToken方法 并且通过remember 来判断data是放在Local 还是 Session 中
 *   5.success(data) 用success 处理data
 * */
-function login(username, password, remember, success){
+function login(username, password, remember,socket, success){
     post('/auth/login', {
         username: username,
         password: password

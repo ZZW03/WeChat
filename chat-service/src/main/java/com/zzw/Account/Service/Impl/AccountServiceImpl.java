@@ -53,11 +53,12 @@ public class AccountServiceImpl  extends ServiceImpl<AccountMapper, Account> imp
 
 
     @Override
-    public String getAccount( Integer id) {
+    public String getAccount(Integer id) {
         Account account = this.getById(id);
         AccountReq req = new AccountReq();
         BeanUtils.copyProperties(account,req);
         req.setAccountPassword("");
+        req.setId(id);
         return RestBean.success(req).ToJSON();
     }
 

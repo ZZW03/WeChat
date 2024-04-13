@@ -30,11 +30,6 @@ get('/account/getDetail', (data) => {
 });
 
 
-
-
-
-
-
 const  loading = ref(true)
 const formRef = ref()
 const modify = ref(true)

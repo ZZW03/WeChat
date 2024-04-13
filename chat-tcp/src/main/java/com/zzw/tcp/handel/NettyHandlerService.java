@@ -63,11 +63,11 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
             UserSession userSession = new UserSession();
             userSession.setUserId(userId);
             userSession.setConnectState(1);
+            MessagePack message = new MessagePack();
             if (stringRedisTemplate.opsForHash().hasKey(Const.REDIS.USER_SESSION,userId.toString())){
                 //todo 通知channel 另外一端上线 要下线
                 NioSocketChannel nioSocketChannel = socketHolder.get(userId);
                 //todo 通知下线
-                MessagePack message = new MessagePack();
                 message.setCommand(SystemCommand.FORCEOFFLINE.getCommand());
                 message.setData("另外一段已经登录，你已经强制下线");
                 nioSocketChannel.writeAndFlush(message);

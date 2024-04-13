@@ -34,6 +34,5 @@ public class WebSocketMessageEncoder extends MessageToMessageEncoder<MessagePack
 
             e.printStackTrace();
         }
-
     }
 }

@@ -1,10 +1,12 @@
 <script setup>
 
-import {reactive, ref} from "vue";
+import {inject, onMounted, onUnmounted, reactive, ref} from "vue";
 import router from "../../router/router.js";
 import {login} from "@/net/account";
 import {Lock, User} from "@element-plus/icons-vue";
 import {get} from "@/net/net";
+import {ListenMessage, socketLogin} from "@/net/Socket";
+import {websocketstore} from "@/store/websocketstore";
 /*
 * ref 单个值
 * reactive 一个对象
@@ -24,14 +26,19 @@ const rules = {
     { required: true, message: '请输入密码'}
   ]
 }
-
+const socketStore = websocketstore();
 function userLogin() {
   formRef.value.validate((isValid) => {
     if(isValid) {
-      login(form.username, form.password, form.remember, () => router.push({name:'index'}))
+      login(form.username, form.password, form.remember ,socketStore.socket,() => router.push({name:'index'}))
     }
   });
 }
+
+
+
+
+
 
 
 

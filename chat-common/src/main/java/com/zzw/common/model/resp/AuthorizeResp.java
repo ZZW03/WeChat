@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthorizeResp {
+    Integer id;
     String token;
     String role;
     String name;

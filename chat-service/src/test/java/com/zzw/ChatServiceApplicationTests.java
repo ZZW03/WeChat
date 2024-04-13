@@ -2,6 +2,8 @@ package com.zzw;
 
 import com.zzw.Account.Service.AccountService;
 import com.zzw.Friend.Service.FriendshipService;
+import com.zzw.Message.Service.P2PMessageService;
+import com.zzw.common.model.dto.MessageContent;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,11 +17,12 @@ class ChatServiceApplicationTests {
 	@Resource
 	AccountService accountService;
 
+	@Resource
+	P2PMessageService p2PMessageService;
+
 	@Test
 	void contextLoads() {
-		if (accountService.getById(2) == null){
 
-		}
 	}
 
 }

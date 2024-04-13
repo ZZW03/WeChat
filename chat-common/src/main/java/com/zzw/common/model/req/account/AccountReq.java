@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class AccountReq {
+    Integer id;
 
     String accountUsername;
 

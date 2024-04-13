@@ -7,6 +7,9 @@ public enum SystemCommand {
     //登录
     LOGIN(0x2328),
 
+    //登录成功
+    LOGIN_SUCCESS(0x2329),
+
     //离线通知
     FORCEOFFLINE(0x232a);
 

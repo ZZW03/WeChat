@@ -5,6 +5,7 @@ export const userstore = defineStore("general",{
     state: ()=>{
         return {
             user: {
+                id:"",
                 accountUsername: "",
                 accountEmail:"",
                 accountRole:"",
