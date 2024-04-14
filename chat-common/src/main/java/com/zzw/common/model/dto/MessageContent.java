@@ -2,6 +2,8 @@ package com.zzw.common.model.dto;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class MessageContent {
 
@@ -11,10 +13,12 @@ public class MessageContent {
 
     private Integer toId;
 
+    private String nickName;
+
     private Integer command;
 
     private Object messageBody;
 
-    private Long messageTime;
+    private Long messageTime = new Date().getTime();
 
 }

@@ -1,35 +1,57 @@
 <script setup>
-import {get} from "@/net/net";
+
 import {reactive, ref} from "vue";
+import {get} from "@/net/net";
 import axios from "axios";
 
 const prop = defineProps({
-  Id : Number
+  FormId:Number,
+  Id : Number,
+  SessionId: Number
 })
 
+
 let UserDetail
+let MessageDetail
 let loading = ref(false)
 get(`/account/getOtherDetail?id=${prop.Id}`,(data)=>{
   UserDetail = reactive({
     NickName: "" + data.data.accountNickName,
     Avatar: "" + `${axios.defaults.baseURL}/images/${data.data.accountAvatar}`,
-    Desc:""+data.data.accountDesc,
   });
-  loading.value = true;
+
+  get(`/message/getOneSessionMessage?SessionId=${prop.SessionId}`,(data)=>{
+    MessageDetail = reactive({
+      nickName:data.data.accountNickName + ":",
+      fromId:data.data.fromId,
+      messageBody:data.data.messageBody
+    })
+
+    if(prop.FormId == MessageDetail.fromId){
+      MessageDetail.nickName = ""
+      console.log(MessageDetail.nickName)
+    }
+
+    loading.value = true;
+  })
 })
+
+
+
 </script>
 
 <template>
   <div v-if="loading">
     <el-avatar class="User-icon" :src="UserDetail.Avatar"/>
     <span style="display: inline-block; height:50%;width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; position: relative; bottom: 8px;font-size: 15px">{{UserDetail.NickName}}</span>
-    <span style="display: inline-block; width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; position: relative; right: 100px; top: 10px; font-size: 11px;color: grey">{{UserDetail.Desc}}</span>
+    <span style="display: inline-block; width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; position: relative; right: 100px; top: 10px; font-size: 11px;color: grey">{{MessageDetail.nickName}}  {{MessageDetail.messageBody}}</span>
   </div>
 </template>
 
 <style scoped>
+
 .User-icon{
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   margin-right: 8px;
   margin-left: -20px;
 }

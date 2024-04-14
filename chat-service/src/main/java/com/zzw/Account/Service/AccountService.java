@@ -3,12 +3,14 @@ package com.zzw.Account.Service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zzw.Account.Entiy.Account;
 import com.zzw.common.model.req.account.*;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 public interface AccountService extends IService<Account> {
 
     public String getAccount(Integer id);
+
 
     public boolean saveBatchCustom(List<Account> list);
 

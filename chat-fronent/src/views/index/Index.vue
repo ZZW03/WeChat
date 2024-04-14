@@ -41,9 +41,7 @@ function userLogout() {
 get('account/getAccount',(data) =>{
   store.user = data.data
   socketStore.initializeWebSocket();
-
   socketStore.socket.onopen = () => {
-
     socketLogin(data.data.id,socketStore.socket)
     ListenMessage(socketStore.socket)
   };
@@ -103,7 +101,7 @@ get('account/getAccount',(data) =>{
                      :default-active="$route.path"
                      default-active="/index/postsquare"
                         >
-              <el-menu-item index="1">
+              <el-menu-item index="/index/messageSession">
                 <el-icon><Message /></el-icon>
                 <template #title>查看消息</template>
               </el-menu-item>

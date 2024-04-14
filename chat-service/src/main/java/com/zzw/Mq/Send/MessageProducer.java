@@ -31,9 +31,9 @@ public class MessageProducer {
     }
 
     public Boolean sendToUser(MessageContent messageContent){
-        MessagePack messagePack = new MessagePack<>();
+        MessagePack<Object> messagePack = new MessagePack<>();
         BeanUtils.copyProperties(messageContent,messagePack);
-        messagePack.setData(messageContent.getMessageBody());
+        messagePack.setData(JSONObject.toJSONString(messageContent));
         String body = JSONObject.toJSONString(messagePack);
         return sendMessage(body);
     }

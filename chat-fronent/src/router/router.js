@@ -10,6 +10,8 @@ import ChangePsw from "@/views/index/ChangePsw.vue";
 import FriendList from "@/views/index/FriendList.vue";
 import FriendInformation from "@/views/index/FriendInformation.vue";
 import GroupInformation from "@/views/index/GroupInformation.vue";
+import messageSession from "@/views/message/MessageSession.vue";
+import MessageContent from "@/views/message/MessageContent.vue";
 
 
 
@@ -69,6 +71,18 @@ const router = createRouter({
                             path:'/groupInformation',
                             name:'groupInformation',
                             component: GroupInformation,
+                        }
+                    ]
+                },
+                {
+                    path:'messageSession',
+                    name:'messageSession',
+                    component: messageSession,
+                    children:[
+                        {
+                            path:'messageContent',
+                            name:'messageContent',
+                            component: MessageContent,
                         }
                     ]
                 }

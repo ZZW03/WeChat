@@ -12,7 +12,7 @@ public class MessagePack<T> implements Serializable {
 
     private Integer toId;
 
-    private Integer messageId;
+    private Long messageId;
 
     private Integer command;
 

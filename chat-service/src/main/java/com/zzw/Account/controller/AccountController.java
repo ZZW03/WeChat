@@ -71,6 +71,11 @@ public class AccountController {
         return accountService.getAccount(id);
     }
 
+    @GetMapping("getName")
+    public String getName(Integer id){
+        return accountDetailService.SelName(id);
+    }
+
     @PostMapping("updateDetail")
     public String updateDetail(@RequestBody AccountDetailsReq req,
                                @RequestAttribute(Const.ACCOUNT.ATTR_USER_ID) Integer id){

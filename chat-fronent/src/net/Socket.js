@@ -1,5 +1,6 @@
-
-
+import {ElNotification} from "element-plus";
+import {h} from "vue";
+import {Bell} from "@element-plus/icons-vue";
 
 
 let ByteBuffer = function (arrayBuf, offset) {
@@ -407,32 +408,31 @@ function socketLogin(Userid,socket){
 function ListenMessage(socket){
 
     socket.onmessage = function (event) {
-        var data = event.data;
-        var reader = new FileReader(); // 使用FileReader读取Blob数据
+        let data = event.data;
+        let reader = new FileReader(); // 使用FileReader读取Blob数据
         reader.onload = function() {
             // 将读取到的ArrayBuffer转换为Uint8Array便于处理
             const arrayBuffer = this.result;
             const view = new DataView(arrayBuffer);
-
-            // 读取前8字节得到command和length
             const command = view.getInt32(0); // 假设为大端模式
             const length = view.getInt32(4); // 假设为大端模式
-
-            console.log("Command: ", command);
-            console.log("Length: ", length);
-
-            // 接着读取JSON字符串，从第8个字节开始
             const jsonString = new TextDecoder("utf-8").decode(new Uint8Array(arrayBuffer.slice(8, 8 + length)));
-
-            console.log("Message Body: ", jsonString);
-
-            // 可以将JSON字符串转换为对象以便处理
             const messageObject = JSON.parse(jsonString);
-            console.log("Message Object: ", messageObject);
-        };
+            const messageBody = JSON.parse(messageObject.data)
 
+            if (command === 1102) {
+                ElNotification({
+                    duration: 20000,
+                    icon: Bell  ,
+                    title: '你有收到了一条' + messageBody.nickName  +'的消息',
+                    offset: 100,
+                    message: h('i', { style: 'display:inline-block;width: 50px;color: red;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' }, messageBody.messageBody),
+                })
+            }
+        };
         // 读取Blob数据为ArrayBuffer进行处理
         reader.readAsArrayBuffer(data);
+
 
         }
 }
@@ -459,4 +459,6 @@ function handleMessage(messageBuffer) {
     console.log("fromId:", fromId);
     console.log("messageTime:", messageTime);
 }
+
+
 export {socketLogin,ListenMessage}

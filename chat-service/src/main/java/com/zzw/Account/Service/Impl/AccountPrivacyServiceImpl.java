@@ -3,18 +3,17 @@ package com.zzw.Account.Service.Impl;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zzw.Account.Dao.AccountPrivacyDao;
+import com.zzw.Account.Dao.AccountPrivacyMapper;
 import com.zzw.Account.Entiy.AccountPrivacy;
 import com.zzw.Account.Service.AccountPrivacyService;
 import com.zzw.common.model.RestBean;
 import com.zzw.common.model.enums.SystemError;
-import com.zzw.common.model.enums.UserError;
 import com.zzw.common.model.req.account.UpdatePrivacyReq;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccountPrivacyServiceImpl extends ServiceImpl<AccountPrivacyDao, AccountPrivacy> implements AccountPrivacyService {
+public class AccountPrivacyServiceImpl extends ServiceImpl<AccountPrivacyMapper, AccountPrivacy> implements AccountPrivacyService {
     @Override
     public String updatePrivacy(UpdatePrivacyReq req, Integer id) {
         AccountPrivacy accountPrivacy1 = this.getById(id);

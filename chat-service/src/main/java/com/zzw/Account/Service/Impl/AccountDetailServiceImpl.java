@@ -4,17 +4,21 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zzw.Account.Dao.AccountDetailMapper;
+import com.zzw.Account.Dao.AccountPrivacyMapper;
 import com.zzw.Account.Entiy.AccountDetails;
 import com.zzw.Account.Service.AccountDetailService;
 import com.zzw.common.model.RestBean;
 import com.zzw.common.model.enums.SystemError;
-import com.zzw.common.model.enums.UserError;
 import com.zzw.common.model.req.account.AccountDetailsReq;
+import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AccountDetailServiceImpl extends ServiceImpl<AccountDetailMapper, AccountDetails> implements AccountDetailService {
+
+    @Resource
+    AccountDetailMapper accountDetailMapper;
 
     @Override
     public AccountDetails GetDetail(Integer id) {
@@ -35,5 +39,11 @@ public class AccountDetailServiceImpl extends ServiceImpl<AccountDetailMapper, A
         }
         return RestBean.success().ToJSON();
     }
+
+    @Override
+    public String SelName(Integer id) {
+        return RestBean.success(accountDetailMapper.SelName(id)).ToJSON();
+    }
+
 
 }
