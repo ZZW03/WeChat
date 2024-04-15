@@ -1,4 +1,4 @@
-import {ElNotification} from "element-plus";
+import {ElMessage, ElNotification} from "element-plus";
 import {h} from "vue";
 import {Bell} from "@element-plus/icons-vue";
 
@@ -400,8 +400,28 @@ function socketLogin(Userid,socket){
             .vstring(jsonData, bodyLen);
         socket.send(loginMsg.pack());
     }else {
-
+        ElMessage.warning("连接不成功，请检查网络")
     }
+}
+
+
+function SendToOne(userId,toId,messagebox,socket){
+    if (socket.readyState === WebSocket.OPEN) {
+        let command = 1102;
+        let messageType = 0x0;
+        let data = {"userId": userId,"toId":toId,"command":command,"data":messagebox};
+        let jsonData = JSON.stringify(data);
+        let bodyLen = jsonData.length;
+        let loginMsg = new ByteBuffer();
+        loginMsg.int32(command)
+            .int32(messageType)
+            .int32(bodyLen)
+            .vstring(jsonData, bodyLen);
+        socket.send(loginMsg.pack());
+    }else {
+        ElMessage.warning("发送不成功 请重新接链接")
+    }
+
 }
 
 
@@ -422,7 +442,7 @@ function ListenMessage(socket){
 
             if (command === 1102) {
                 ElNotification({
-                    duration: 20000,
+                    duration: 1000,
                     icon: Bell  ,
                     title: '你有收到了一条' + messageBody.nickName  +'的消息',
                     offset: 100,
@@ -461,4 +481,4 @@ function handleMessage(messageBuffer) {
 }
 
 
-export {socketLogin,ListenMessage}
+export {socketLogin,ListenMessage,SendToOne}

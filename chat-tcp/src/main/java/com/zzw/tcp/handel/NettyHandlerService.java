@@ -64,7 +64,7 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
             userSession.setUserId(userId);
             userSession.setConnectState(1);
             MessagePack message = new MessagePack();
-            if (stringRedisTemplate.opsForHash().hasKey(Const.REDIS.USER_SESSION,userId.toString())){
+            if (stringRedisTemplate.opsForHash().hasKey(Const.REDIS.USER_SESSION, userId.toString())) {
                 //todo 通知channel 另外一端上线 要下线
                 NioSocketChannel nioSocketChannel = socketHolder.get(userId);
                 //todo 通知下线
@@ -74,11 +74,13 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
                 //todo stringRedisTemplate移除 socketHolder中移除
                 socketHolder.remove(userId);
             }
-            stringRedisTemplate.opsForHash().put(Const.REDIS.USER_SESSION,userId.toString(),userSession.toString());
+            stringRedisTemplate.opsForHash().put(Const.REDIS.USER_SESSION, userId.toString(), userSession.toString());
             //向sessionSocketHolder中存储channel
             socketHolder
                     .put(userId, (NioSocketChannel) ctx.channel());
 
+        }else{
+            System.out.println(JSONObject.toJSONString(msg.getMessagePack()));
         }
     }
 

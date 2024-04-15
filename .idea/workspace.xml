@@ -4,29 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="前端消息可以接收了">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="开始着手于session的编写">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475/storage_v2/_src_/schema/chat.WJMuAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475/storage_v2/_src_/schema/chat.WJMuAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/model/dto/MessageContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/model/dto/MessageContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/proto/MessagePack.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/proto/MessagePack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/codeUtils/WebSocketMessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/codeUtils/WebSocketMessageDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/model/enums/SystemCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/model/enums/SystemCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/proto/MessageHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/proto/MessageHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/Components/FriendDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/Components/FriendDetails.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/Components/SessionDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/Components/SessionDetail.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/index/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/index/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Dao/AccountDetailMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Dao/AccountDetailMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Dao/AccountPrivacyDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Dao/AccountPrivacyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/AccountDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/AccountDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/Impl/AccountDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/Impl/AccountDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/Impl/AccountPrivacyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Service/Impl/AccountPrivacyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Mq/Send/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Mq/Send/MessageProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageSession.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageSession.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/welcome/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/welcome/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/handel/NettyHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/handel/NettyHandlerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,41 +85,41 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/study/java_Project/WeChat/chat-tcp/src/main/java/com/zzw/tcp/Mq/Listener",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "ts.external.directory.path": "D:\\study\\IDEA\\IntelliJ IDEA 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/study/java_Project/WeChat/chat-tcp/src/main/java/com/zzw/tcp/Mq/Listener&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\study\\IDEA\\IntelliJ IDEA 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "redis"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;redis&quot;
     ],
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -155,7 +147,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ChatServiceApplication">
+  <component name="RunManager" selected="Spring Boot.TcpServiceApplication">
     <configuration name="ChatServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chat-service" />
       <extension name="coverage">
@@ -216,10 +208,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ChatServiceApplication" />
-        <item itemvalue="JUnit.ChatServiceApplicationTests.contextLoads" />
-        <item itemvalue="npm.dev" />
         <item itemvalue="Spring Boot.TcpServiceApplication" />
+        <item itemvalue="Spring Boot.ChatServiceApplication" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="JUnit.ChatServiceApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +237,8 @@
       <workItem from="1713016596605" duration="135000" />
       <workItem from="1713018204288" duration="198000" />
       <workItem from="1713018986918" duration="36000" />
-      <workItem from="1713062722803" duration="13984000" />
+      <workItem from="1713062722803" duration="15138000" />
+      <workItem from="1713166083652" duration="2457000" />
     </task>
     <task id="LOCAL-00001" summary="tcp">
       <option name="closed" value="true" />
@@ -311,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713016316866</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="开始着手于session的编写">
+      <option name="closed" value="true" />
+      <created>1713090666916</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713090666916</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +336,8 @@
     <MESSAGE value="前端的用户好友列表" />
     <MESSAGE value="继续完善前端 每天一点点" />
     <MESSAGE value="前端消息可以接收了" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端消息可以接收了" />
+    <MESSAGE value="开始着手于session的编写" />
+    <option name="LAST_COMMIT_MESSAGE" value="开始着手于session的编写" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

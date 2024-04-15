@@ -12,12 +12,11 @@ import {get, post, postE} from "@/net/net";
 *   4.返回data 通过storeAccessToken方法 并且通过remember 来判断data是放在Local 还是 Session 中
 *   5.success(data) 用success 处理data
 * */
-function login(username, password, remember,socket, success){
+function login(username, password, remember, success){
     post('/auth/login', {
         username: username,
         password: password
     },(data) => {
-        console.info(data)
         if(data.code === 200 ){
             storeAccessToken(remember, data.data.token, data.data.expire)
             ElMessage.success(`登录成功，欢迎 ${data.data.name} 来到我们的系统`)

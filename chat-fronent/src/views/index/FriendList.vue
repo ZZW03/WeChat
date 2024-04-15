@@ -29,8 +29,8 @@ get('/friend/SelShip',(data)=>{
           <el-button @click="router.push({name:'groupInformation'})"  class="information" style="width: 85%;border: none;margin-left:10%;margin-top:5% ; "  >群聊通知 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<el-icon><ArrowRight /></el-icon> </el-button>
         </div>
         <el-divider/>
-        <el-scrollbar style="height: calc(100vh - 200px)">
-          <el-menu style="height: calc(100vh - 160px)"
+        <el-scrollbar style="height: 70%">
+          <el-menu style="height: 70%"
           >
             <el-sub-menu >
               <template #title>
@@ -48,7 +48,7 @@ get('/friend/SelShip',(data)=>{
       </el-aside>
 
       <el-main id="main-container" >
-        <el-scrollbar style="height: calc(100vh - 60px)">
+        <el-scrollbar style="height: calc(100vh - 100px)">
           <router-view v-slot="{ Component }">
             <transition name="el-fade-in-linear" mode="out-in">
               <component :is="Component" style="height: 100%"/>
@@ -62,7 +62,7 @@ get('/friend/SelShip',(data)=>{
 
 <style scoped>
 #container{
-  height: 100vh;
+  height: 100%;
 }
 
 .elAside{

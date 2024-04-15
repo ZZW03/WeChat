@@ -13,6 +13,8 @@ public enum SystemCommand {
     //离线通知
     FORCEOFFLINE(0x232a);
 
+
+
     private final int command;
 
     SystemCommand(int command) {

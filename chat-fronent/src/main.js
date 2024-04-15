@@ -24,6 +24,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.use(ElementPlus)
 app.use(router)
 app.use(VueAxios,axios)
-app.use(ElMessage)
 app.use(createPinia())
 app.mount('#app')

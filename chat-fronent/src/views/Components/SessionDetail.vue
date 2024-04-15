@@ -29,9 +29,7 @@ get(`/account/getOtherDetail?id=${prop.Id}`,(data)=>{
 
     if(prop.FormId == MessageDetail.fromId){
       MessageDetail.nickName = ""
-      console.log(MessageDetail.nickName)
     }
-
     loading.value = true;
   })
 })
@@ -51,9 +49,9 @@ get(`/account/getOtherDetail?id=${prop.Id}`,(data)=>{
 <style scoped>
 
 .User-icon{
-  margin-bottom: 8px;
-  margin-right: 8px;
-  margin-left: -20px;
+  margin-bottom: 3%;
+  margin-right: 1%;
+  margin-left: 1%;
 }
 div{
   font-family: "Microsoft JhengHei",serif;

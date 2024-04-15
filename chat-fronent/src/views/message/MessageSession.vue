@@ -31,8 +31,8 @@ function clickHandel(id) {
   <el-container id="container">
     <el-aside class="elAside">
 
-      <el-scrollbar style="height: 100vh">
-        <el-menu style="height: calc(100vh )"
+      <el-scrollbar style="height: 100%">
+        <el-menu style="height: calc(93vh )"
         >
             <el-menu-item  class="item" v-for="item in session">
               <SessionDetail :FormId="item.fromId" :Id="item.toId" :SessionId="item.sessionId" @click="clickHandel(item.toId)"/>
@@ -42,13 +42,11 @@ function clickHandel(id) {
     </el-aside>
 
     <el-main id="main-container" >
-      <el-scrollbar style="height: calc(100vh - 60px)">
         <router-view v-slot="{ Component }">
           <transition name="el-fade-in-linear" mode="out-in">
-            <component :is="Component" style="height: 100%"/>
+            <component :is="Component"/>
           </transition>
         </router-view>
-      </el-scrollbar>
     </el-main>
   </el-container>
 </div>
@@ -56,4 +54,16 @@ function clickHandel(id) {
 
 <style scoped>
 
+.item{
+  height: 10%;
+}
+.item:hover{
+  background-color: whitesmoke;
+}
+.item:focus{
+  background-color: whitesmoke;
+}
+#main-container{
+  padding: 0;
+}
 </style>
