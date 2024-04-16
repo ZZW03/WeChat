@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="可以发送消息 编写前端页面">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1eb5b67-87ce-48ef-b8ad-3b4b9ebf68e2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d1eb5b67-87ce-48ef-b8ad-3b4b9ebf68e2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/model/enums/SystemCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/model/enums/Command/SystemCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/@babel/parser/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/@babel/parser/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/@babel/parser/lib/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/@babel/parser/lib/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/@babel/parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/@babel/parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/@babel/parser/typings/babel-parser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/@babel/parser/typings/babel-parser.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Service/P2PMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Service/P2PMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Mq/Listener/MailQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/Mq/Listener/MailQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Mq/Send/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Send/MessageProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/Mq/Listener/MessageService2ImQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/Mq/Listener/MessageService2ImQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/Mq/Listener/process/BaseProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/Mq/Listener/process/BaseProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/configuation/BasicConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/configuation/BasicConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/handel/NettyHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/handel/NettyHandlerService.java" afterDir="false" />
-    </list>
+    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,7 +207,7 @@
       <workItem from="1713062722803" duration="15138000" />
       <workItem from="1713166083652" duration="9460000" />
       <workItem from="1713247401563" duration="17615000" />
-      <workItem from="1713272890388" duration="7131000" />
+      <workItem from="1713272890388" duration="7836000" />
     </task>
     <task id="LOCAL-00001" summary="tcp">
       <option name="closed" value="true" />
@@ -315,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713175762365</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="可以通消息了 前端完成一点点">
+      <option name="closed" value="true" />
+      <created>1713280663076</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713280663076</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +323,8 @@
     <MESSAGE value="前端消息可以接收了" />
     <MESSAGE value="开始着手于session的编写" />
     <MESSAGE value="可以发送消息 编写前端页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="可以发送消息 编写前端页面" />
+    <MESSAGE value="可以通消息了 前端完成一点点" />
+    <option name="LAST_COMMIT_MESSAGE" value="可以通消息了 前端完成一点点" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
