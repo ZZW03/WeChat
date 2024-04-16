@@ -5,10 +5,12 @@ import com.alibaba.fastjson2.JSONObject;
 import com.alibaba.fastjson2.TypeReference;
 import com.zzw.common.Const;
 import com.zzw.common.model.UserSession;
-import com.zzw.common.model.enums.SystemCommand;
+import com.zzw.common.model.enums.Command.MessageCommand;
+import com.zzw.common.model.enums.Command.SystemCommand;
 import com.zzw.common.pack.LoginPack;
 import com.zzw.common.proto.Message;
 import com.zzw.common.proto.MessagePack;
+import com.zzw.tcp.Mq.Send.MqMessageProducer;
 import com.zzw.tcp.utils.SocketHolder;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -16,23 +18,15 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.AttributeKey;
 import jakarta.annotation.Resource;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.stereotype.Component;
-
-import java.net.InetAddress;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
 
 
 
 public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
+
+    @Setter
+    static MqMessageProducer messageProducer;
 
 
     @Setter
@@ -59,7 +53,6 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
             }.getType());
             Integer userId = loginPack.getUserId();
             ctx.channel().attr(AttributeKey.valueOf(Const.CHANNEL.UserId)).set(userId);
-
             UserSession userSession = new UserSession();
             userSession.setUserId(userId);
             userSession.setConnectState(1);
@@ -79,8 +72,8 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
             socketHolder
                     .put(userId, (NioSocketChannel) ctx.channel());
 
-        }else{
-            System.out.println(JSONObject.toJSONString(msg.getMessagePack()));
+        }if(command.equals(MessageCommand.MSG_P2P.getCommand())){
+            messageProducer.sendMessage(msg,command);
         }
     }
 

@@ -1,12 +1,11 @@
 package com.zzw.Message.Service;
 
-import com.zzw.Mq.Send.MessageProducer;
+import com.zzw.Message.Mq.Send.MessageProducer;
 import com.zzw.common.model.RestBean;
 import com.zzw.common.model.dto.MessageContent;
 import com.zzw.common.model.enums.MessageError;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
 
 @Slf4j

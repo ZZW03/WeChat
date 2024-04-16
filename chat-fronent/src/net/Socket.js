@@ -1,6 +1,7 @@
 import {ElMessage, ElNotification} from "element-plus";
-import {h} from "vue";
+import {h, ref} from "vue";
 import {Bell} from "@element-plus/icons-vue";
+import {get} from "@/net/net";
 
 
 let ByteBuffer = function (arrayBuf, offset) {
@@ -386,6 +387,7 @@ let ByteBuffer = function (arrayBuf, offset) {
     };
 }
 
+
 function socketLogin(Userid,socket){
     if (socket.readyState === WebSocket.OPEN) {
         let command = 9000;
@@ -411,12 +413,12 @@ function SendToOne(userId,toId,messagebox,socket){
         let messageType = 0x0;
         let data = {"userId": userId,"toId":toId,"command":command,"data":messagebox};
         let jsonData = JSON.stringify(data);
-        let bodyLen = jsonData.length;
+        let bodyLen = getLen(jsonData);
         let loginMsg = new ByteBuffer();
         loginMsg.int32(command)
             .int32(messageType)
             .int32(bodyLen)
-            .vstring(jsonData, bodyLen);
+            .vstring(jsonData, bodyLen); // 使用转换后的字符串
         socket.send(loginMsg.pack());
     }else {
         ElMessage.warning("发送不成功 请重新接链接")
@@ -424,10 +426,25 @@ function SendToOne(userId,toId,messagebox,socket){
 
 }
 
+function getLen(str) {
+    let len = 0;
+    for (let i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+        //单字节加1
+        if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
+            len++;
+        } else {
+            len += 3;
+        }
+    }
+    return len;
+}
+
 
 function ListenMessage(socket){
 
     socket.onmessage = function (event) {
+
         let data = event.data;
         let reader = new FileReader(); // 使用FileReader读取Blob数据
         reader.onload = function() {
@@ -438,15 +455,17 @@ function ListenMessage(socket){
             const length = view.getInt32(4); // 假设为大端模式
             const jsonString = new TextDecoder("utf-8").decode(new Uint8Array(arrayBuffer.slice(8, 8 + length)));
             const messageObject = JSON.parse(jsonString);
-            const messageBody = JSON.parse(messageObject.data)
+            const messageBody = (messageObject.data)
 
+
+            console.log(messageObject)
             if (command === 1102) {
                 ElNotification({
-                    duration: 1000,
+                    duration: 20000,
                     icon: Bell  ,
-                    title: '你有收到了一条' + messageBody.nickName  +'的消息',
+                    title: '你有收到了一条' + messageObject.data.nickName  +'的消息',
                     offset: 100,
-                    message: h('i', { style: 'display:inline-block;width: 50px;color: red;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' }, messageBody.messageBody),
+                    message: h('i', { style: 'display:inline-block;width: 200px;color: red;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' }, messageObject.data.data),
                 })
             }
         };

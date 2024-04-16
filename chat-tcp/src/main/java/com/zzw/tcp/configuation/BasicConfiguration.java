@@ -1,5 +1,6 @@
 package com.zzw.tcp.configuation;
 
+import com.zzw.tcp.Mq.Send.MqMessageProducer;
 import com.zzw.tcp.handel.NettyHandlerService;
 import com.zzw.tcp.utils.SocketHolder;
 import jakarta.annotation.PostConstruct;
@@ -11,6 +12,9 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 public class BasicConfiguration {
 
     @Resource
+    MqMessageProducer messageProducer;
+
+    @Resource
     StringRedisTemplate stringRedisTemplate;
 
     @Resource
@@ -20,5 +24,6 @@ public class BasicConfiguration {
     public void init(){
         NettyHandlerService.setStringRedisTemplate(stringRedisTemplate);
         NettyHandlerService.setSocketHolder(socketHolder);
+        NettyHandlerService.setMessageProducer(messageProducer);
     }
 }

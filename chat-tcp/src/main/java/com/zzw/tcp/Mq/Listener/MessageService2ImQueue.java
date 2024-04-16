@@ -1,5 +1,6 @@
 package com.zzw.tcp.Mq.Listener;
 
+import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.rabbitmq.client.Channel;
 import com.zzw.common.Const;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
 @RabbitListener(
         bindings = @QueueBinding(
                 value = @Queue(value = Const.MQ.MessageService2Im,durable = "true"),
-                exchange = @Exchange(value = Const.MQ.Im2MessageService,durable = "true")
+                exchange = @Exchange(value = Const.MQ.MessageService2Im,durable = "true")
         ),concurrency = "1"
 )
 public class MessageService2ImQueue {
@@ -26,9 +27,12 @@ public class MessageService2ImQueue {
         public void onChatMessage(String msg){
 
                     try{
+
                         String msgStr = String.valueOf(msg);
                         MessagePack messagePack =
                                 JSONObject.parseObject(msgStr, MessagePack.class);
+                        JSONObject data = JSON.parseObject(msg);
+                        messagePack.setData(data);
                         BaseProcess messageProcess = ProcessFactory
                                 .getMessageProcess(messagePack.getCommand());
                         messageProcess.process(messagePack);

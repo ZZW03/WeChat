@@ -14,8 +14,17 @@ public class Const {
 
     public static class MQ{
         public static final String MQ_QUEUE_NAME_MAIL = "queue:mail";
+
         public static final String MessageService2Im = "messageservice2im";
+
+        public static final String Im2UserService = "pipeline2UserService";
+
+        public static final String Im2FriendshipService = "pipeline2FriendshipService";
+        public static final String Im2GroupService = "pipeline2GroupService";
+
         public static final String Im2MessageService = "im2MessageService";
+
+
     }
 
     public static class REDIS{

@@ -1,4 +1,4 @@
-package com.zzw.Mq.Send;
+package com.zzw.Message.Mq.Send;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.zzw.common.Const;

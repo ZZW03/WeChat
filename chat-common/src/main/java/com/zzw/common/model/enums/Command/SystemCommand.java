@@ -1,4 +1,4 @@
-package com.zzw.common.model.enums;
+package com.zzw.common.model.enums.Command;
 
 import lombok.Getter;
 

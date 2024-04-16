@@ -4,8 +4,10 @@ package com.zzw.tcp.Mq.Listener.process;
 import com.zzw.common.proto.MessagePack;
 import com.zzw.tcp.utils.SocketHolder;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import lombok.extern.slf4j.Slf4j;
 
 
+@Slf4j
 public abstract class BaseProcess {
 
     public abstract void processBefore();
@@ -22,7 +24,7 @@ public abstract class BaseProcess {
 
         //得到channel 后直接将信息发送给 指定客户端
         if(channel != null){
-
+            log.info("Send msg------->" + messagePack);
             channel.writeAndFlush(messagePack);
         }
 
