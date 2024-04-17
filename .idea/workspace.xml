@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="" />
+    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="可以通消息了 前端完成一点点">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/model/enums/Command/SystemCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-common/src/main/java/com/zzw/common/model/enums/Command/SystemCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/index/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/index/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Controller/FriendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Controller/FriendController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/FriendshipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/FriendshipService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/impl/FriendshipServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Service/impl/FriendshipServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/TcpServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/TcpServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/configuation/BasicConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/configuation/BasicConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/handel/NettyHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/java/com/zzw/tcp/handel/NettyHandlerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-tcp/src/test/java/com/zzw/TcpServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-tcp/src/test/java/com/zzw/TcpServiceApplicationTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Interface" />
         <option value="Vue Composition API Component" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -132,7 +148,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TcpServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ChatServiceApplication">
     <configuration name="ChatServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="chat-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzw.ChatServiceApplication" />
@@ -176,8 +192,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.TcpServiceApplication" />
         <item itemvalue="Spring Boot.ChatServiceApplication" />
+        <item itemvalue="Spring Boot.TcpServiceApplication" />
         <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
@@ -208,6 +224,8 @@
       <workItem from="1713166083652" duration="9460000" />
       <workItem from="1713247401563" duration="17615000" />
       <workItem from="1713272890388" duration="7836000" />
+      <workItem from="1713280865095" duration="309000" />
+      <workItem from="1713320931498" duration="10521000" />
     </task>
     <task id="LOCAL-00001" summary="tcp">
       <option name="closed" value="true" />
@@ -297,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713280663076</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="可以通消息了 前端完成一点点">
+      <option name="closed" value="true" />
+      <created>1713281072125</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713281072125</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

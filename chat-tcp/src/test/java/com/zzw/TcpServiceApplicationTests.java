@@ -1,6 +1,8 @@
 package com.zzw;
 
+import com.zzw.common.model.req.friend.CheckStatusReq;
 import com.zzw.tcp.TcpServiceApplication;
+import com.zzw.tcp.fegin.MessageClient;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +20,13 @@ class TcpServiceApplicationTests {
 	@Resource
 	StringRedisTemplate stringRedisTemplate;
 
+	@Autowired(required = true)
+	MessageClient messageClient;
 
 	@Test
 	void contextLoads() {
-		stringRedisTemplate.opsForHash().put("1","2","123");
-		stringRedisTemplate.opsForHash().put("1","3","123");
-		System.out.println(stringRedisTemplate.opsForHash().get("1", "3"));
+		CheckStatusReq checkStatusReq = new CheckStatusReq(1,2);
+		System.out.println(messageClient.CheckStatus(checkStatusReq));
 	}
 
 }

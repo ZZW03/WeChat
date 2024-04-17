@@ -63,6 +63,7 @@ public class SecurityConfig {
                         .requestMatchers("/account/forgetPsw").permitAll()
                         .requestMatchers("/images/**").permitAll()
                         .requestMatchers("/cache/**").permitAll()
+                        .requestMatchers("/friend/CheckStatus").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(conf -> {
                     conf.loginProcessingUrl("/auth/login");

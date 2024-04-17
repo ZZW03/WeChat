@@ -43,7 +43,7 @@ get('account/getAccount',(data) =>{
   socketStore.initializeWebSocket();
   socketStore.socket.onopen = () => {
     socketLogin(data.data.id,socketStore.socket)
-    ListenMessage(socketStore.socket)
+    // ListenMessage(socketStore.socket)
   };
 
 

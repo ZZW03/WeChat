@@ -441,7 +441,7 @@ function getLen(str) {
 }
 
 
-function ListenMessage(socket){
+function ListenMessage(socket,success){
 
     socket.onmessage = function (event) {
 
@@ -458,15 +458,19 @@ function ListenMessage(socket){
             const messageBody = (messageObject.data)
 
 
-            console.log(messageObject)
-            if (command === 1102) {
-                ElNotification({
-                    duration: 20000,
-                    icon: Bell  ,
-                    title: '你有收到了一条' + messageObject.data.nickName  +'的消息',
-                    offset: 100,
-                    message: h('i', { style: 'display:inline-block;width: 200px;color: red;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' }, messageObject.data.data),
-                })
+
+            // if (command === 1102) {
+            //     ElNotification({
+            //         duration: 20000,
+            //         icon: Bell  ,
+            //         title: '你有收到了一条' + messageObject.data.nickName  +'的消息',
+            //         offset: 100,
+            //         message: h('i', { style: 'display:inline-block;width: 200px;color: red;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' }, messageObject.data.data),
+            //     })
+            // }
+
+            if(command === 1102){
+                success(messageObject)
             }
         };
         // 读取Blob数据为ArrayBuffer进行处理
@@ -476,28 +480,7 @@ function ListenMessage(socket){
         }
 }
 
-function handleMessage(messageBuffer) {
-    // 创建一个新的 DataView 对象来读取 ArrayBuffer 中的数据
-    const dataView = new DataView(messageBuffer);
 
-    // 从 DataView 中读取字节数据并解析成对应的数据类型
-    const toId = dataView.getInt32(0); // 假设 toId 是一个32位整数
-    const command = dataView.getInt32(4); // 假设 command 是一个32位整数
-    const messageBodyBytes = new Uint8Array(messageBuffer.slice(8)); // 假设 messageBody 是一段字节数据
-    const messageBody = new TextDecoder().decode(messageBodyBytes); // 将字节数据转换为字符串
-    const messageId = dataView.getInt32(8 + messageBodyBytes.length); // 假设 messageId 是一个32位整数
-    const fromId = dataView.getInt32(12 + messageBodyBytes.length); // 假设 fromId 是一个32位整数
-    const messageTime = ""; // 暂时没有提供消息时间的字节数据
-
-    // 打印解析出来的数据
-    console.log("解析消息：");
-    console.log("toId:", toId);
-    console.log("command:", command);
-    console.log("messageBody:", messageBody);
-    console.log("messageId:", messageId);
-    console.log("fromId:", fromId);
-    console.log("messageTime:", messageTime);
-}
 
 
 export {socketLogin,ListenMessage,SendToOne}

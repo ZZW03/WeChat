@@ -4,6 +4,16 @@ spring:
   virtualHost: /
   userName: guest
   password: guest
+  cloud:
+    openfeign:
+      client:
+        config:
+          Account:
+            url: http://localhost:8080
+            connectTimeout: 5000
+            readTimeout: 5000
+            loggerLevel: full
+
 
   rabbitmq:
     addresses: localhost:5672

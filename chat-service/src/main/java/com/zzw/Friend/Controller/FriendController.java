@@ -6,6 +6,7 @@ import com.zzw.Friend.Service.FriendshipReqService;
 import com.zzw.Friend.Service.FriendshipService;
 import com.zzw.common.Const;
 import com.zzw.common.model.req.friend.AddFriendReq;
+import com.zzw.common.model.req.friend.CheckStatusReq;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,5 +37,10 @@ public class FriendController {
     @GetMapping("SelAllReq")
     public String SelAllReq(@RequestAttribute(Const.ACCOUNT.ATTR_USER_ID)Integer FromId){
         return reqService.SelAllReq(FromId);
+    }
+
+    @PostMapping("CheckStatus")
+    public String CheckFriend(@RequestBody CheckStatusReq req){
+        return shipService.CheckStatus(req);
     }
 }

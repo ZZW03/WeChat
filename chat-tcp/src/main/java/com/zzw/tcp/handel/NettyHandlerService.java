@@ -5,12 +5,16 @@ import com.alibaba.fastjson2.JSONObject;
 import com.alibaba.fastjson2.TypeReference;
 import com.zzw.common.Const;
 import com.zzw.common.model.UserSession;
+import com.zzw.common.model.enums.Command.FriendshipEventCommand;
 import com.zzw.common.model.enums.Command.MessageCommand;
 import com.zzw.common.model.enums.Command.SystemCommand;
+import com.zzw.common.model.enums.FriendShipError;
+import com.zzw.common.model.req.friend.CheckStatusReq;
 import com.zzw.common.pack.LoginPack;
 import com.zzw.common.proto.Message;
 import com.zzw.common.proto.MessagePack;
 import com.zzw.tcp.Mq.Send.MqMessageProducer;
+import com.zzw.tcp.fegin.MessageClient;
 import com.zzw.tcp.utils.SocketHolder;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -18,11 +22,13 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.AttributeKey;
 import jakarta.annotation.Resource;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 
 
+@Component
 public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
 
     @Setter
@@ -35,6 +41,10 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
 
     @Setter
     static StringRedisTemplate stringRedisTemplate;
+
+    @Setter
+    static MessageClient messageClient;
+
 
 
     //查看三种消息
@@ -73,9 +83,31 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
                     .put(userId, (NioSocketChannel) ctx.channel());
 
         }if(command.equals(MessageCommand.MSG_P2P.getCommand())){
-            messageProducer.sendMessage(msg,command);
+
+            MessagePack messagePack = JSON.parseObject(JSONObject.toJSONString(msg.getMessagePack()), new TypeReference<MessagePack>() {
+            }.getType());
+
+            if(CheckStatus(messagePack)){
+                messageProducer.sendMessage(msg,command);
+            }else{
+                messagePack.setCommand(FriendshipEventCommand.FRIEND_REFUSE_COMMUNICATION.getCommand());
+                messagePack.setData(FriendShipError.U_IN_HIS_BLACK.getError());
+                ctx.channel().writeAndFlush(messagePack);
+            }
+
         }
     }
 
-
+    private Boolean CheckStatus(MessagePack messagePack){
+        Integer FromId = messagePack.getUserId();
+        Integer ToId = messagePack.getToId();
+        CheckStatusReq req = new CheckStatusReq(FromId,ToId);
+        String s = messageClient.CheckStatus(req);
+        JSONObject result = JSON.parseObject(s);
+        Integer code = result.getInteger("code");
+        if(code.equals(200)){
+            return  true;
+        }
+        return false;
+    }
 }

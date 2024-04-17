@@ -1,7 +1,7 @@
 <script setup >
 import router from "@/router/router";
 import {useRoute} from "vue-router";
-import {SendToOne} from "@/net/Socket";
+import {ListenMessage, SendToOne} from "@/net/Socket";
 import {websocketstore} from "@/store/websocketstore";
 import {get} from "@/net/net";
 import {reactive, ref, watch} from "vue";
@@ -52,17 +52,45 @@ const clickEmoji = (val) => {
 let loading =ref(false)
 let UserDetail
 get(`/account/getOtherDetail?id=${toId}`,(data)=> {
-  console.log(data.data)
+
   UserDetail = reactive({
     NickName:data.data.accountNickName,
     Avatar: "" + `${axios.defaults.baseURL}/images/${data.data.accountAvatar}`,
   });
+  ListenMessage(socket,(data)=>{
+    console.log(data.data.data)
+    displayMessage(data.data.data,"received")
+  })
   loading.value = true
 })
 
 function SendMessage(){
   SendToOne(detailstore.userdetail.accountId,toId,textarea.value,socket)
+  displayMessage(textarea.value,"sent")
+  textarea.value = ""
 }
+
+function displayMessage(message, sender) {
+  const chatContainer = document.getElementById("chat-container");
+  if (!chatContainer) {
+    console.error("Chat container element not found.");
+    return;
+  }
+
+  const messageElement = document.createElement("div");
+  messageElement.textContent = message;
+  messageElement.classList.add("chat-message");
+
+  if (sender === "received") {
+    messageElement.classList.add("chat-message-received");
+  } else if (sender === "sent") {
+    messageElement.classList.add("chat-message-sent");
+  }
+
+  chatContainer.appendChild(messageElement);
+}
+
+
 
 
 
@@ -84,7 +112,7 @@ function SendMessage(){
       </el-header>
       <el-divider />
       <el-scrollbar style="height: 50%">
-        <el-main class="body">
+        <el-main id="chat-container">
 
 
 
@@ -100,8 +128,6 @@ function SendMessage(){
                   :options-name="customIcon"
                   :recent="true"
                   :custom-size="customSize"
-
-
               >
                 <font-awesome-icon :icon="['far', 'face-smile']" />
               </V3Emoji>
@@ -130,7 +156,7 @@ function SendMessage(){
   </div>
 </template>
 
-<style scoped>
+<style>
 .main{
   background-color: whitesmoke;
   height: 100%;
@@ -143,14 +169,41 @@ function SendMessage(){
 .header{
   height: 5%;
 }
-.body{
-  height: 50%;
-}
+
 .foot{
   height: 30%;
 }
 .contain-main{
   padding: 0;
+}
+
+#chat-container {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+}
+
+.chat-message {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  display: flex; /* 使用 Flex 布局 */
+  align-items: center; /* 沿着交叉轴居中对齐 */
+}
+
+.chat-message-sent {
+  background-color: #dcf8c6;
+  justify-content: flex-end; /* 从右侧对齐 */
+  margin-left: auto; /* 将 sent 消息向右移动 */
+  max-width: 40%;
+  word-wrap: break-word; /* 确保内容换行 */
+}
+
+.chat-message-received {
+  margin-right: auto;
+  justify-content: flex-start;
+  background-color: #f0f0f0;
+  max-width: 40%;
+  word-wrap: break-word; /* 确保内容换行 */
 }
 
 .icon{
