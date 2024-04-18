@@ -11,6 +11,7 @@ import com.zzw.Account.Service.AccountService;
 import com.zzw.Utils.FlowUtil;
 import com.zzw.common.Const;
 import com.zzw.common.model.RestBean;
+import com.zzw.common.model.enums.FriendShipError;
 import com.zzw.common.model.enums.SystemError;
 import com.zzw.common.model.enums.UserError;
 import com.zzw.common.model.req.account.*;
@@ -29,6 +30,9 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class AccountServiceImpl  extends ServiceImpl<AccountMapper, Account> implements AccountService {
+
+    @Resource
+    AccountMapper accountMapper;
 
 
     @Resource
@@ -60,6 +64,15 @@ public class AccountServiceImpl  extends ServiceImpl<AccountMapper, Account> imp
         req.setAccountPassword("");
         req.setId(id);
         return RestBean.success(req).ToJSON();
+    }
+
+    @Override
+    public String getIdByUserName(String userName) {
+        Integer idByName = accountMapper.getIdByName(userName);
+        if(idByName == null){
+            return RestBean.error(FriendShipError.NOT_FIND.getCode(),FriendShipError.NOT_FIND.getError()).ToJSON();
+        }
+        return RestBean.success(idByName).ToJSON();
     }
 
 

@@ -38,7 +38,6 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
     @Setter
     static SocketHolder socketHolder;
 
-
     @Setter
     static StringRedisTemplate stringRedisTemplate;
 
@@ -82,7 +81,7 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
             socketHolder
                     .put(userId, (NioSocketChannel) ctx.channel());
 
-        }if(command.equals(MessageCommand.MSG_P2P.getCommand())){
+        }else if(command.equals(MessageCommand.MSG_P2P.getCommand())){
 
             MessagePack messagePack = JSON.parseObject(JSONObject.toJSONString(msg.getMessagePack()), new TypeReference<MessagePack>() {
             }.getType());
@@ -95,10 +94,15 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
                 ctx.channel().writeAndFlush(messagePack);
             }
 
+        }else{
+
+            messageProducer.sendMessage(msg,command);
         }
     }
 
     private Boolean CheckStatus(MessagePack messagePack){
+        System.out.println(messagePack);
+
         Integer FromId = messagePack.getUserId();
         Integer ToId = messagePack.getToId();
         CheckStatusReq req = new CheckStatusReq(FromId,ToId);

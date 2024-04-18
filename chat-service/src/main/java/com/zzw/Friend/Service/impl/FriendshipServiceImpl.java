@@ -32,6 +32,7 @@ public class FriendshipServiceImpl extends ServiceImpl<FriendshipMapper, Friends
 
     @Override
     public String CheckStatus(CheckStatusReq req) {
+        System.out.println(req);
         Friendship FromShip = this.query().eq("from_id", req.getFromId()).eq("to_id", req.getToId()).one();
         Friendship ToShip   = this.query().eq("from_id", req.getToId()).eq("to_id", req.getFromId()).one();
         if(!FromShip.getStatus().equals(0)){

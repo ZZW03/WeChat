@@ -34,7 +34,7 @@ class ChatServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println(messageMapper.SelOneMessageInSession(1));
+		System.out.println(accountService.getIdByUserName("zzw"));
 
 	}
 }

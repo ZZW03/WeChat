@@ -1085,8 +1085,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="299" parent="1" name="chat">
       <Current>1</Current>
-      <IntrospectionTimestamp>2024-04-15.02:13:23</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-04-14.10:13:23</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2024-04-19.00:01:50</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-04-18.08:01:50</LocalIntrospectionTimestamp>
       <CollationName>utf16_general_ci</CollationName>
     </schema>
     <user id="300" parent="1" name="nacos"/>
@@ -1281,7 +1281,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="344" parent="311" name="session_id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>

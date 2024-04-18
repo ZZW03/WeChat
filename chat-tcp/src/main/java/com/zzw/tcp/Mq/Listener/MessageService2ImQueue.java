@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.amqp.rabbit.listener.api.ChannelAwareMessageListener;
+import org.springframework.amqp.support.AmqpHeaders;
+import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,7 +26,7 @@ import org.springframework.stereotype.Component;
 public class MessageService2ImQueue {
 
         @RabbitHandler
-        public void onChatMessage(String msg){
+        public void onChatMessage(String msg,Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag){
 
                     try{
 
@@ -36,6 +38,7 @@ public class MessageService2ImQueue {
                         BaseProcess messageProcess = ProcessFactory
                                 .getMessageProcess(messagePack.getCommand());
                         messageProcess.process(messagePack);
+
                     }catch (Exception e){
                         log.error(e.getMessage());
                     }

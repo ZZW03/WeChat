@@ -48,15 +48,19 @@ const clickEmoji = (val) => {
   textarea.value += val;
 };
 
-
+const userstore = userdetailstore()
 let loading =ref(false)
-let UserDetail
+let ToUserDetail
+let FromUserAvatar
 get(`/account/getOtherDetail?id=${toId}`,(data)=> {
 
-  UserDetail = reactive({
+  ToUserDetail = reactive({
     NickName:data.data.accountNickName,
     Avatar: "" + `${axios.defaults.baseURL}/images/${data.data.accountAvatar}`,
   });
+
+
+
   ListenMessage(socket,(data)=>{
     console.log(data.data.data)
     displayMessage(data.data.data,"received")
@@ -70,6 +74,8 @@ function SendMessage(){
   textarea.value = ""
 }
 
+
+
 function displayMessage(message, sender) {
   const chatContainer = document.getElementById("chat-container");
   if (!chatContainer) {
@@ -77,17 +83,45 @@ function displayMessage(message, sender) {
     return;
   }
 
+  // 创建包含头像和消息的总容器
+  const totalMessageContainer = document.createElement("div");
+  totalMessageContainer.classList.add("message-container");
+
+  // 创建头像元素
+  const avatar = document.createElement("img");
+  avatar.setAttribute("src", sender === "sent" ? userstore.avatarUrl : ToUserDetail.Avatar);
+  avatar.classList.add("my-avatar");
+
+  // 添加不同的类以控制头像位置
+  if (sender === "sent") {
+    avatar.classList.add("avatar-sent");
+  } else {
+    avatar.classList.add("avatar-received");
+  }
+
+  // 创建消息元素
   const messageElement = document.createElement("div");
   messageElement.textContent = message;
   messageElement.classList.add("chat-message");
 
-  if (sender === "received") {
-    messageElement.classList.add("chat-message-received");
-  } else if (sender === "sent") {
+  // 添加不同的类以控制消息框的位置和样式
+  if (sender === "sent") {
     messageElement.classList.add("chat-message-sent");
+  } else {
+    messageElement.classList.add("chat-message-received");
   }
 
-  chatContainer.appendChild(messageElement);
+  // 根据发送状态将头像和消息添加到总容器中
+  if (sender === "sent") {
+    totalMessageContainer.appendChild(messageElement); // 先添加消息
+    totalMessageContainer.appendChild(avatar); // 再添加头像
+  } else {
+    totalMessageContainer.appendChild(avatar); // 先添加头像
+    totalMessageContainer.appendChild(messageElement); // 再添加消息
+  }
+
+  // 将总容器添加到聊天容器中
+  chatContainer.appendChild(totalMessageContainer);
 }
 
 
@@ -101,13 +135,13 @@ function displayMessage(message, sender) {
   <div class="main" v-if="loading">
     <el-container class="contain-main">
       <el-header class="header">
-        <div style="margin-top: 2% ;display: inline-block;font-family: 'Microsoft Yahei',serif">{{UserDetail.NickName}}</div>
+        <div style="margin-top: 3% ;display: inline-block;font-size: 20px;font-family: 'Microsoft Yahei',serif">{{ToUserDetail.NickName}}</div>
         <div style="display:inline-block;position: relative;left: 77%">
-          <el-button class="icon"  size="large" circle ><el-icon size="30"><Phone /></el-icon></el-button>
-          <el-button class="icon"  size="large" circle ><el-icon size="30"><VideoCamera /></el-icon></el-button>
-          <el-button class="icon"  size="large" circle ><el-icon size="30"><font-awesome-icon :icon="['fas', 'tv']" /></el-icon></el-button>
-          <el-button class="icon"  size="large" circle ><el-icon size="30"><CirclePlus /></el-icon></el-button>
-          <el-button class="icon"  size="large" circle ><el-icon size="30"><More /></el-icon></el-button>
+          <el-button class="button-icon"  size="large" circle ><el-icon size="30"><Phone /></el-icon></el-button>
+          <el-button class="button-icon"  size="large" circle ><el-icon size="30"><VideoCamera /></el-icon></el-button>
+          <el-button class="button-icon"  size="large" circle ><el-icon size="30"><font-awesome-icon :icon="['fas', 'tv']" /></el-icon></el-button>
+          <el-button class="button-icon"  size="large" circle ><el-icon size="30"><CirclePlus /></el-icon></el-button>
+          <el-button class="button-icon"  size="large" circle ><el-icon size="30"><More /></el-icon></el-button>
         </div>
       </el-header>
       <el-divider />
@@ -182,41 +216,20 @@ function displayMessage(message, sender) {
   flex-direction: column; /* 垂直排列 */
 }
 
-.chat-message {
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  display: flex; /* 使用 Flex 布局 */
-  align-items: center; /* 沿着交叉轴居中对齐 */
+
+
+.button-icon{
+  position: relative !important;
+  border: none !important;
+  background-color: whitesmoke !important;
+}
+.button-icon:hover{
+  color: black !important;
+  background-color: whitesmoke !important;
 }
 
-.chat-message-sent {
-  background-color: #dcf8c6;
-  justify-content: flex-end; /* 从右侧对齐 */
-  margin-left: auto; /* 将 sent 消息向右移动 */
-  max-width: 40%;
-  word-wrap: break-word; /* 确保内容换行 */
-}
-
-.chat-message-received {
-  margin-right: auto;
-  justify-content: flex-start;
-  background-color: #f0f0f0;
-  max-width: 40%;
-  word-wrap: break-word; /* 确保内容换行 */
-}
-
-.icon{
-  position: relative;
-  border: none;
-  background-color: whitesmoke;
-}
-.icon:hover{
-  background-color: whitesmoke;
-}
-
-.icon:focus{
-  background-color: whitesmoke;
+.button-icon:focus{
+  background-color: whitesmoke!important;
 }
 
 .text-area{
@@ -268,6 +281,53 @@ function displayMessage(message, sender) {
   position: relative;
   bottom: 2px
 
+}
+
+
+/* 基础样式 */
+.my-avatar {
+  width: 40px; /* 设置头像大小 */
+  height: 45px; /* 设置头像大小 */
+  border-radius: 50%; /* 圆形头像 */
+  object-fit: cover;
+}
+
+.message-container {
+  display: flex;
+  align-items: flex-end; /* 消息框与头像底部对齐 */
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.chat-message {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 0 10px; /* 与头像或边缘保持一定间距 */
+  max-width: 60%; /* 消息最大宽度 */
+  word-wrap: break-word; /* 确保内容换行 */
+}
+
+/* 发送的消息 */
+.chat-message-sent {
+  background-color: #dcf8c6;
+  margin-left: auto; /* 将消息向右移动 */
+}
+
+/* 接收的消息 */
+.chat-message-received {
+  background-color: #f0f0f0;
+  margin-right: 0; /* 将消息向右移动 */
+}
+
+/* 发送方头像 */
+.avatar-sent {
+  //margin-left: auto; /* 头像向右移动 */
+}
+
+/* 接收方头像 */
+.avatar-received {
+  /* 默认样式即为左侧，无需额外设置 */
 }
 
 

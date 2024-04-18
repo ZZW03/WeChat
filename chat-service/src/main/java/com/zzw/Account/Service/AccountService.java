@@ -11,7 +11,7 @@ public interface AccountService extends IService<Account> {
 
     public String getAccount(Integer id);
 
-
+    public String getIdByUserName(String userName);
     public boolean saveBatchCustom(List<Account> list);
 
     Boolean SaveAccount(AccountReq accountReq);

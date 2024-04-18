@@ -18,6 +18,8 @@ import org.springframework.stereotype.Component;
                 value = @Queue(value = Const.MQ.Im2MessageService,durable = "true"),
                 exchange = @Exchange(value = Const.MQ.Im2MessageService,durable = "true")
         ),concurrency = "1")
+//交换机就是文件夹
+//队列是文件
 public class MessageOperateReceive {
 
     @Resource

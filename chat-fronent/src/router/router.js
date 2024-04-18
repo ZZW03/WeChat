@@ -7,9 +7,9 @@ import {ElMessage} from "element-plus";
 import Enroll from "@/views/welcome/Enroll.vue";
 import UserSetting from "@/views/index/UserSetting.vue";
 import ChangePsw from "@/views/index/ChangePsw.vue";
-import FriendList from "@/views/index/FriendList.vue";
-import FriendInformation from "@/views/index/FriendInformation.vue";
-import GroupInformation from "@/views/index/GroupInformation.vue";
+import FriendList from "@/views/friends/FriendList.vue";
+import FriendInformation from "@/views/friends/FriendInformation.vue";
+import GroupInformation from "@/views/groups/GroupInformation.vue";
 import messageSession from "@/views/message/MessageSession.vue";
 import MessageContent from "@/views/message/MessageContent.vue";
 

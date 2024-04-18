@@ -40,7 +40,7 @@ public class MqMessageProducer {
         }
         try {
             String MessageBody = JSON.toJSONString(message);
-            amqpTemplate.convertAndSend(channelName,MessageBody);
+            amqpTemplate.convertAndSend(channelName,"",MessageBody);
         }catch (Exception e){
             log.error("发送消息出现异常：{}",e.getMessage());
         }

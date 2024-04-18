@@ -172,4 +172,14 @@ function savePrivacy(Type, status){
     })
 }
 
-export {logout,login,Sendcode,confirmReset,enRoll,forgetPsw,SaveDetail,ModifyEmail,resetPsw,savePrivacy}
+function findByName(Username,success){
+    get(`/account/getIdByUsername?name=${Username}`,(data)=>{
+        if(data.code === 200){
+            success(data.data)
+        }else{
+            ElMessage.error(data.message)
+        }
+    })
+}
+
+export {logout,login,Sendcode,confirmReset,enRoll,forgetPsw,SaveDetail,ModifyEmail,resetPsw,savePrivacy,findByName}

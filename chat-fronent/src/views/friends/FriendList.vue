@@ -4,6 +4,12 @@ import {reactive, ref} from "vue";
 import router from "@/router/router";
 import {get} from "@/net/net";
 import FriendDetails from "@/views/Components/FriendDetails.vue";
+import {userdetailstore} from "@/store/userdetailstore";
+import {websocketstore} from "@/store/websocketstore";
+import {SendToAddFriend, SendToOne} from "@/net/Socket";
+import {findByName} from "@/net/account";
+import {userstore} from "@/store/userstore";
+import {ElMessage} from "element-plus";
 
 const ToUser=ref()
 const ListData = ref()
@@ -11,6 +17,17 @@ const ListData = ref()
 get('/friend/SelShip',(data)=>{
   ListData.value = data.data
 })
+
+const socket = websocketstore().socket
+
+function addFriend(){
+  findByName(ToUser.value,(data)=>{
+    SendToAddFriend(userstore.user.id,data,socket,3000,()=>{
+      ElMessage.success("发送成功")
+    })
+  })
+
+}
 
 
 
@@ -21,8 +38,8 @@ get('/friend/SelShip',(data)=>{
     <el-container id="container">
       <el-aside class="elAside">
         <div>
-        <el-input :prefix-icon="Search" v-model="ToUser" style="width: 70%;margin-left: 5%;margin-top: 5%;"/>
-        <el-button :icon="Plus" size="default" style="margin-left: 2%;margin-top: 5%"></el-button>
+        <el-input placeholder="请输入对方账号" :prefix-icon="Search" v-model="ToUser" style="width: 70%;margin-left: 5%;margin-top: 5%;"/>
+        <el-button  class="add" :icon="Plus" size="default" style="margin-left: 2%;margin-top: 5%" @click="addFriend"/>
         </div>
         <div style="width: 100%;">
           <el-button @click="router.push({name:'friendInformation'})" class="information" style="width: 85%;border: none;margin-left:10%;margin-top:5% ; "  >好友通知 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<el-icon><ArrowRight /></el-icon> </el-button>
@@ -81,6 +98,18 @@ get('/friend/SelShip',(data)=>{
 }
 
 .item:focus{
+  background-color: whitesmoke;
+}
+
+.add{
+  background-color: white;
+}
+
+.add:hover{
+  background-color: whitesmoke;
+}
+
+.add:focus{
   background-color: whitesmoke;
 }
 </style>

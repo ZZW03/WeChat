@@ -12,7 +12,6 @@ export const websocketstore = defineStore('websocket', {
             this.socket = socket;
         },
         initializeWebSocket() {
-
             const socket = new WebSocket("ws://localhost:19000/ws");
             this.setSocket(socket);
         }

@@ -426,6 +426,27 @@ function SendToOne(userId,toId,messagebox,socket){
 
 }
 
+function SendToAddFriend(userId,toId,socket,command,success){
+    if (socket.readyState === WebSocket.OPEN) {
+        let messageType = 0x0;
+        let data = {"userId": userId,"toId":toId,"command":command,"data":{"wording":"123"}};
+        let jsonData = JSON.stringify(data);
+        let bodyLen = getLen(jsonData);
+        let loginMsg = new ByteBuffer();
+        loginMsg.int32(command)
+            .int32(messageType)
+            .int32(bodyLen)
+            .vstring(jsonData, bodyLen); // 使用转换后的字符串
+        socket.send(loginMsg.pack());
+        success()
+    }else {
+        ElMessage.warning("发送不成功 请重新接链接")
+    }
+
+}
+
+
+
 function getLen(str) {
     let len = 0;
     for (let i = 0; i < str.length; i++) {
@@ -445,6 +466,7 @@ function ListenMessage(socket,success){
 
     socket.onmessage = function (event) {
 
+
         let data = event.data;
         let reader = new FileReader(); // 使用FileReader读取Blob数据
         reader.onload = function() {
@@ -456,7 +478,7 @@ function ListenMessage(socket,success){
             const jsonString = new TextDecoder("utf-8").decode(new Uint8Array(arrayBuffer.slice(8, 8 + length)));
             const messageObject = JSON.parse(jsonString);
             const messageBody = (messageObject.data)
-
+            console.log(messageObject)
 
 
             // if (command === 1102) {
@@ -483,4 +505,4 @@ function ListenMessage(socket,success){
 
 
 
-export {socketLogin,ListenMessage,SendToOne}
+export {socketLogin,ListenMessage,SendToOne,SendToAddFriend}

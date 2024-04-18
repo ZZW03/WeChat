@@ -8,4 +8,8 @@ public interface FriendshipReqService extends IService<FriendshipReq> {
 
     String SelAllReq(Integer FromId);
     String AddReq(Integer FromId, AddFriendReq req);
+
+    Boolean selOneReq(Integer FromId,Integer ToId);
+
+    void UpdateReaded(Integer FromId,Integer ToId);
 }

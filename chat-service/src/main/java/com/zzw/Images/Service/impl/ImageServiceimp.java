@@ -94,7 +94,6 @@ public class ImageServiceimp extends ServiceImpl<ImageStoreDao, StoreImage> impl
                         .stream(file.getInputStream(), file.getSize(), -1)
                         .object(imageName)
                         .build();
-
         try {
             minioClient.putObject(args);
             if(this.save(new StoreImage(id,imageName,date))){
@@ -102,7 +101,6 @@ public class ImageServiceimp extends ServiceImpl<ImageStoreDao, StoreImage> impl
             }else{
                 return null;
             }
-
         }catch (Exception e){
             return RestBean.error(ImageError.UPLOAD_IMAGE_ERROR.getCode(), ImageError.UPLOAD_IMAGE_ERROR.getError()).ToJSON();
         }
@@ -153,7 +151,7 @@ public class ImageServiceimp extends ServiceImpl<ImageStoreDao, StoreImage> impl
             } catch (ErrorResponseException e) {
                 if(e.response().code() == 404) {
                     response.setStatus(404);
-                    stream.println(RestBean.error(SystemError.NOT_FIND.getCode(), SystemError.NOT_FIND.getError()).toString());
+//                    stream.println(RestBean.error(SystemError.NOT_FIND.getCode(), SystemError.NOT_FIND.getError()).toString());
                 } else {
                     log.error("从Minio获取图片出现异常: "+e.getMessage(), e);
                 }

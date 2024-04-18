@@ -94,6 +94,11 @@ public class AccountController {
             return RestBean.success(accountPrivacyService.getById(id)).ToJSON();
     }
 
+    @GetMapping("getIdByUsername")
+    public String getIdByUserName(String name){
+        return accountService.getIdByUserName(name);
+    }
+
 
 
 

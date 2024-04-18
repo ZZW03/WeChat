@@ -26,6 +26,7 @@ public class FriendController {
     @PostMapping("AddFriend")
     public String AddFriend(@RequestBody AddFriendReq req,
                             @RequestAttribute(Const.ACCOUNT.ATTR_USER_ID) Integer FromId){
+        System.out.println(req);
         return reqService.AddReq(FromId,req);
     }
 

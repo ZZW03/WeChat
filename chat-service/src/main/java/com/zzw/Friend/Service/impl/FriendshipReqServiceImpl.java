@@ -2,6 +2,7 @@ package com.zzw.Friend.Service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.conditions.update.UpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zzw.Account.Entiy.Account;
 import com.zzw.Account.Service.AccountService;
@@ -15,10 +16,8 @@ import com.zzw.common.model.req.friend.AddFriendReq;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import javax.crypto.spec.PSource;
-
 @Service
-public class FriendshipReqServiceable extends ServiceImpl<FriendshipReqMapper, FriendshipReq> implements FriendshipReqService {
+public class FriendshipReqServiceImpl extends ServiceImpl<FriendshipReqMapper, FriendshipReq> implements FriendshipReqService {
 
     @Resource
     AccountService accountService;
@@ -32,14 +31,13 @@ public class FriendshipReqServiceable extends ServiceImpl<FriendshipReqMapper, F
     @Override
     public String AddReq(Integer FromId, AddFriendReq req) {
 
-        Account account = accountService.FindByName(req.getToUsername());
+        Account account = accountService.getById(req.getToId());
 
         if(account == null){
             return RestBean.error(FriendShipError.NOT_HAVE_FRIEND.getCode(),FriendShipError.NOT_HAVE_FRIEND.getError()).ToJSON();
         }
 
         if(account.getAccountId().equals(FromId)){
-
             return RestBean.error(FriendShipError.CANT_ADD_YOURSELF.getCode(),FriendShipError.CANT_ADD_YOURSELF.getError()).ToJSON();
         }
 
@@ -56,5 +54,27 @@ public class FriendshipReqServiceable extends ServiceImpl<FriendshipReqMapper, F
             RestBean.error(SystemError.USER_SYSTEM_ERROR.getCode(),SystemError.USER_SYSTEM_ERROR.getError()).ToJSON();
         }
         return RestBean.success().ToJSON();
+    }
+
+    @Override
+    public Boolean selOneReq(Integer FromId, Integer ToId) {
+        FriendshipReq one = this.query()
+                .eq("from_id", FromId)
+                .eq("to_id", ToId)
+                .one();
+        return one == null;
+    }
+
+    @Override
+    public void UpdateReaded(Integer FromId, Integer ToId) {
+        System.out.println("进入");
+//        Wrapper<FriendshipReqServiceImpl> wrapper = new QueryWrapper<FriendshipReqServiceImpl>()
+//                .eq("from_id",FromId)
+//                .eq("to_id",ToId);
+        this.update()
+                .eq("from_id", FromId)
+                .eq("to_id", ToId)
+                .set("read_status",0)
+                .update();
     }
 }

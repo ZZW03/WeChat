@@ -12,4 +12,5 @@ public class FriendshipReq {
     String addWording;
     Integer approveStatus;
     String  createTime;
+
 }
