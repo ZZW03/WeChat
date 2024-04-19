@@ -67,10 +67,6 @@ public class FriendshipReqServiceImpl extends ServiceImpl<FriendshipReqMapper, F
 
     @Override
     public void UpdateReaded(Integer FromId, Integer ToId) {
-        System.out.println("进入");
-//        Wrapper<FriendshipReqServiceImpl> wrapper = new QueryWrapper<FriendshipReqServiceImpl>()
-//                .eq("from_id",FromId)
-//                .eq("to_id",ToId);
         this.update()
                 .eq("from_id", FromId)
                 .eq("to_id", ToId)

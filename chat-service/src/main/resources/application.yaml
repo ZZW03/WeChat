@@ -23,15 +23,36 @@ spring:
       mail.smtp.ssl.enable: true
       mail.smtp.ssl.trust: smtp.163.com
   rabbitmq:
+    #发送者的消息确认
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+          # 指定消息在没有被队列接收时是否强行退回还是直接丢弃:ReturnCallback.returnedMessage消息未送达回调（true）
+         mandatory: true
     addresses: localhost:5672
     username: guest
     password: guest
     virtual-host: /
+    listener:
+      simple:
+        concurrency: 1
+        max-concurrency: 1
+        acknowledge-mode: manual
+        prefetch: 1
+        retry:
+          # 是否开启重试机制
+          enabled: true
+          # 默认是3,是一共三次，而不是重试三次，三次包含了第一执行，所以只重试了两次
+          max-attempts: 3
+          # 重试间隔时间。毫秒
+          initial-interval: 3000
+
+
   minio:
     endpoint: http://localhost:9000
     username: "minio"
     password: "password"
-mybatis-plus:
-  configuration:
-    map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#mybatis-plus:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
