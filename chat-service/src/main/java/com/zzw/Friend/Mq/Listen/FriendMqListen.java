@@ -18,6 +18,7 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.annotation.*;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -31,6 +32,7 @@ import java.io.IOException;
         ), concurrency = "1")
 public class FriendMqListen {
 
+
     @Resource
     AmqpTemplate amqpTemplate;
 
@@ -43,10 +45,12 @@ public class FriendMqListen {
     @Resource
     FriendshipReqService friendshipReqService;
 
+
     @RabbitHandler
-    public void onChatMessage(String msg, org.springframework.amqp.core.Message MainMessage, Channel channel) {
+    public void onChatMessage(String msg, org.springframework.amqp.core.Message MainMessage, Channel channel) throws IOException {
         long deliveryTag = MainMessage.getMessageProperties().getDeliveryTag();
         try {
+
 
             //todo 做好友添加的业务
             String msgStr = String.valueOf(msg);
@@ -90,14 +94,22 @@ public class FriendMqListen {
             channel.basicPublish("", MainMessage.getMessageProperties().getReplyTo(), replyProps, replyMessage.getBytes());
 
         } catch (Exception e) {
-            log.error(e.getMessage());
-            try {
-                //nack返回false，并重新回到队列
-                channel.basicNack(deliveryTag, false, true);
-            } catch (IOException ioException) {
-                log.error("重新放入队列失败，失败原因:{}", e.getMessage(), e);
+            // 获取redis重试次数
+            if (value < 2) {
+                // 存入redis
+                value += 1;
+            } else if (value.equals(2) ) { // 如果第三次还是有异常，那么第三次的次数value值还是2 所以加入重试表
+                // logic // 加入重试表
+                log.error("消息[{}]消费失败...传递参数[{}]", MainMessage,msg);
+                log.info("需要人工操作");
+                // 签收失败并不重试
+                channel.basicNack(MainMessage.getMessageProperties().getDeliveryTag(), false, false);
+                return;
             }
-            log.error("TopicConsumer消费者出错,mq参数:{}，错误信息：{}", MainMessage, e.getMessage(), e);
+            log.info("签收失败[{}]",msg);
+            throw new RuntimeException("签收异常");
+        }
+
         }
     }
-}
+
