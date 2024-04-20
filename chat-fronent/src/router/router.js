@@ -8,10 +8,10 @@ import Enroll from "@/views/welcome/Enroll.vue";
 import UserSetting from "@/views/index/UserSetting.vue";
 import ChangePsw from "@/views/index/ChangePsw.vue";
 import FriendList from "@/views/friends/FriendList.vue";
-import FriendInformation from "@/views/friends/FriendInformation.vue";
-import GroupInformation from "@/views/groups/GroupInformation.vue";
 import messageSession from "@/views/message/MessageSession.vue";
 import MessageContent from "@/views/message/MessageContent.vue";
+import FriendInformation from "@/views/friends/FriendInformation.vue";
+import GroupInformation from "@/views/groups/GroupInformation.vue";
 
 
 
@@ -63,12 +63,12 @@ const router = createRouter({
                     component: FriendList,
                     children:[
                         {
-                            path:'/friendInformation',
+                            path:'friendInformation',
                             name:'friendInformation',
                             component: FriendInformation,
                         },
                         {
-                            path:'/groupInformation',
+                            path:'groupInformation',
                             name:'groupInformation',
                             component: GroupInformation,
                         }

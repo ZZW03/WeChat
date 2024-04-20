@@ -18,6 +18,7 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.annotation.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -44,6 +45,9 @@ public class FriendMqListen {
 
     @Resource
     FriendshipReqService friendshipReqService;
+
+    @Value("${spring.rabbitmq.listener.simple.retry.max-attempts}")
+    Integer value ;
 
 
     @RabbitHandler

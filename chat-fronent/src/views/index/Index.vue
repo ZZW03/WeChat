@@ -46,7 +46,6 @@ get('account/getAccount',(data) =>{
     // ListenMessage(socketStore.socket)
   };
 
-
   get('/account/getDetail', (data) => {
     detailstore.userdetail = data.data
     get('/account/getPrivacy', (data) => {

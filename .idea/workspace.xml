@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="深入了解了MQ">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Mq/Listen/FriendMqListen.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Friend/Mq/Listen/FriendMqListen.java" afterDir="false" />
-    </list>
+    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="深入了解了MQ" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -139,7 +136,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ChatServiceApplication">
+  <component name="RunManager" selected="Spring Boot.TcpServiceApplication">
     <configuration name="ChatServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="chat-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzw.ChatServiceApplication" />
@@ -219,7 +216,7 @@
       <workItem from="1713320931498" duration="14702000" />
       <workItem from="1713403583169" duration="22757000" />
       <workItem from="1713507064553" duration="13318000" />
-      <workItem from="1713522818391" duration="733000" />
+      <workItem from="1713522818391" duration="1521000" />
     </task>
     <task id="LOCAL-00001" summary="tcp">
       <option name="closed" value="true" />
@@ -341,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713521233874</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="深入了解了MQ">
+      <option name="closed" value="true" />
+      <created>1713523743470</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713523743470</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

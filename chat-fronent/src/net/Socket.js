@@ -426,10 +426,10 @@ function SendToOne(userId,toId,messagebox,socket){
 
 }
 
-function SendToAddFriend(userId,toId,socket,command,success){
+function SendToAddFriend(userId,toId,socket,command,wording,success){
     if (socket.readyState === WebSocket.OPEN) {
         let messageType = 0x0;
-        let data = {"userId": userId,"toId":toId,"command":command,"data":{"wording":"123"}};
+        let data = {"userId": userId,"toId":toId,"command":command,"data":{"wording":wording}};
         let jsonData = JSON.stringify(data);
         let bodyLen = getLen(jsonData);
         let loginMsg = new ByteBuffer();

@@ -5,6 +5,7 @@ import FriendAddReq from "@/views/Components/FriendAddReq.vue";
 
 
 let Req = ref ()
+
 get('friend/SelAllReq',(data)=>{
   Req.value = data.data
   console.info(data.data)

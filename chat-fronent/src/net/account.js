@@ -30,7 +30,6 @@ function login(username, password, remember, success){
 
 function logout(){
     post('/auth/logout',{},(response)=>{
-        console.info(response)
         if(response.code === 200){
                     ElMessage.success(response.data)
                     deleteAccessToken()
