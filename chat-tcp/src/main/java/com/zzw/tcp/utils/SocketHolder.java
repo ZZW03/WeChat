@@ -19,6 +19,9 @@ public class SocketHolder {
 
     //通过消息中的信息 ，来得到指定的channel
     public NioSocketChannel get(Integer ID){
+        if (ID == null) {
+            return null;
+        }
         return CHANNELS.get(ID);
     }
 

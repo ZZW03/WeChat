@@ -442,8 +442,10 @@ function SendToAddFriend(userId,toId,socket,command,wording,success){
     }else {
         ElMessage.warning("发送不成功 请重新接链接")
     }
-
 }
+
+
+
 
 
 

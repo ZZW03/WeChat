@@ -95,13 +95,13 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
             }
 
         }else{
-
             messageProducer.sendMessage(msg,command);
         }
     }
 
+
     private Boolean CheckStatus(MessagePack messagePack){
-        System.out.println(messagePack);
+
 
         Integer FromId = messagePack.getUserId();
         Integer ToId = messagePack.getToId();

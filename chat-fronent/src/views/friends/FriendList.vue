@@ -25,23 +25,26 @@ const socket = websocketstore().socket
 let AddFriendDetails ;
 function isShow(){
   findByName(ToUser.value,(data)=>{
-    console.log(data)
-    get(`/account/getOtherDetail?id=${data}`,(evt)=>{
-      console.log(evt)
-      AddFriendDetails = reactive({
-        id: evt.data.accountId,
-        NickName: evt.data.accountNickName,
-        Avatar: "" + `${axios.defaults.baseURL}/images/${evt.data.accountAvatar}`,
-        Desc: evt.data.accountDesc
+    if(userstore.user.id === data){
+      ElMessage.error("不能添加自己")
+    }else{
+      get(`/account/getOtherDetail?id=${data}`,(evt)=>{
+
+        AddFriendDetails = reactive({
+          id: evt.data.accountId,
+          NickName: evt.data.accountNickName,
+          Avatar: "" + `${axios.defaults.baseURL}/images/${evt.data.accountAvatar}`,
+          Desc: evt.data.accountDesc
+        })
+        show.value = !show.value
       })
-      show.value = !show.value
-    })
+    }
   })
 }
 
 
 function addFriend(){
-    SendToAddFriend(userstore.user.id,AddFriendDetails.id,socket,3000,textarea.value,()=>{
+    SendToAddFriend(userstore.user.id,AddFriendDetails.id,socket,3003,textarea.value,()=>{
       ElMessage.success("发送成功")
     })
 }

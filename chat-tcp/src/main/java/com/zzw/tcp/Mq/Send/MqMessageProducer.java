@@ -30,20 +30,9 @@ public class MqMessageProducer {
     public MqMessageProducer() {
     }
 
-    public void init() {
-        rabbitTemplate.setConfirmCallback((CorrelationData correlationData, boolean ack, String cause) -> {
-            if (ack) {
-                log.info(correlationData.getId()+"---------------->发送完成");
-            } else {
-                log.error("发送失败");
-            }
-        });
-
-        rabbitTemplate.setMandatory(true);
-    }
 
     public void sendMessage(Message message, Integer command) {
-        init(); // 初始化方法
+
 
         Channel channel = null;
         String com = command.toString();
@@ -61,18 +50,10 @@ public class MqMessageProducer {
         }
 
         // 设置关联消息 这样就知道哪条消息发送成功
-        CorrelationData correlationData = new CorrelationData();
-        correlationData.setId(String.valueOf(UUID.randomUUID()));
 
         try {
             String MessageBody = JSON.toJSONString(message);
-            Object o = rabbitTemplate.convertSendAndReceive(channelName, "", MessageBody, correlationData);
-            if (o == null) {
-                //todo 没收到回复做的处理
-                log.error("未收到回复消息");
-            }else{
-                log.info(correlationData.getId() + "---------------->"+new String((byte[]) o, StandardCharsets.UTF_8));
-            }
+            rabbitTemplate.convertAndSend(channelName, "", MessageBody);
 
         } catch (Exception e) {
             log.error("发送消息出现异常：{}", e.getMessage());

@@ -8,7 +8,6 @@ let Req = ref ()
 
 get('friend/SelAllReq',(data)=>{
   Req.value = data.data
-  console.info(data.data)
 })
 
 

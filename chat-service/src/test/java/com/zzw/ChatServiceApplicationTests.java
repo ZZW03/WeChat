@@ -3,6 +3,7 @@ package com.zzw;
 import com.zzw.Account.Service.AccountDetailService;
 import com.zzw.Account.Service.AccountService;
 import com.zzw.Friend.Service.FriendshipService;
+import com.zzw.Friend.Service.impl.FriendshipServiceImpl;
 import com.zzw.Message.Dao.MessageMapper;
 import com.zzw.Message.Service.ConversationSessionService;
 import com.zzw.Message.Service.P2PMessageService;
@@ -32,9 +33,11 @@ class ChatServiceApplicationTests {
 	@Resource
 	MessageMapper messageMapper;
 
+
+
+
 	@Test
 	void contextLoads() {
-		System.out.println(accountService.getIdByUserName("zzw"));
 
 	}
 }

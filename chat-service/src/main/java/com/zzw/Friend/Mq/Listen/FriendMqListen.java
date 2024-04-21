@@ -67,8 +67,8 @@ public class FriendMqListen {
             // 解析data里面的数据
             JSONObject json = (JSONObject) JSON.toJSON(messagePack.getData());
 
-            if (command.equals(FriendshipEventCommand.FRIEND_ADD.getCommand())) {
-                //todo 做好友添加的业务
+            if (command.equals(FriendshipEventCommand.FRIEND_REQUEST.getCommand())) {
+                //todo 做好友申请的添加的业务
 
                 Integer fromId = messagePack.getUserId();
                 Integer toId = messagePack.getToId();
@@ -81,21 +81,20 @@ public class FriendMqListen {
                     friendshipReqService.UpdateReaded(fromId, toId);
                 }
                 log.info("完成添加好友业务");
+            }if(command.equals(FriendshipEventCommand.FRIEND_ADD.getCommand())){
+                // todo 添加好友的业务
+                Integer fromId = messagePack.getUserId();
+                Integer toId = messagePack.getToId();
+                Integer reqId = (Integer) json.get("wording");
+                System.out.println(friendshipService.AddFriend(fromId, toId, reqId));
+                log.info("添加好友业务完成");
             }
 
-            //发送消息 和 回应消息的CorrelationId 一致才能说明是回应刚刚那条消息
-            AMQP.BasicProperties replyProps = new AMQP.BasicProperties
-                    .Builder()
-                    .correlationId(MainMessage.getMessageProperties().getCorrelationId())  // 设置 correlationId
-                    .build();
 
-            String replyMessage = "已经被消费"; // 设置你要发送的回复消息内容
 
-            //处理完信息
-            //如何我不写确认 那么
-            //如果没ack 那么就不会basicPublish
+            //主动回ack
             channel.basicAck(deliveryTag, false);
-            channel.basicPublish("", MainMessage.getMessageProperties().getReplyTo(), replyProps, replyMessage.getBytes());
+
 
         } catch (Exception e) {
             // 获取redis重试次数

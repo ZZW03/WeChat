@@ -9,6 +9,7 @@ import com.zzw.Account.Service.AccountService;
 import com.zzw.Friend.Dao.FriendshipReqMapper;
 import com.zzw.Friend.Entiy.FriendshipReq;
 import com.zzw.Friend.Service.FriendshipReqService;
+import com.zzw.Friend.Service.FriendshipService;
 import com.zzw.common.model.RestBean;
 import com.zzw.common.model.enums.FriendShipError;
 import com.zzw.common.model.enums.SystemError;
@@ -21,6 +22,9 @@ public class FriendshipReqServiceImpl extends ServiceImpl<FriendshipReqMapper, F
 
     @Resource
     AccountService accountService;
+
+    @Resource
+    FriendshipService friendshipService;
 
     @Override
     public String SelAllReq(Integer FromId) {
@@ -73,4 +77,6 @@ public class FriendshipReqServiceImpl extends ServiceImpl<FriendshipReqMapper, F
                 .set("read_status",0)
                 .update();
     }
+
+
 }

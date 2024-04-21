@@ -12,4 +12,6 @@ public interface FriendshipReqService extends IService<FriendshipReq> {
     Boolean selOneReq(Integer FromId,Integer ToId);
 
     void UpdateReaded(Integer FromId,Integer ToId);
+
+
 }

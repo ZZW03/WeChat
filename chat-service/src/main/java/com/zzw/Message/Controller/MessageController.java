@@ -25,7 +25,7 @@ public class MessageController {
     @PostMapping("/sendmessage")
     public String sendMessage(@RequestAttribute(Const.ACCOUNT.ATTR_USER_ID) Integer id,
                               @RequestBody MessageContent messageContent){
-        System.out.println(messageContent);
+
         return  p2PMessageService.SendMessage(messageContent,id);
     }
 

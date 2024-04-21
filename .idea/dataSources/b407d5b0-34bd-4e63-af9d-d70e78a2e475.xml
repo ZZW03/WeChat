@@ -1085,8 +1085,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="299" parent="1" name="chat">
       <Current>1</Current>
-      <IntrospectionTimestamp>2024-04-19.00:01:50</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-04-18.08:01:50</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2024-04-21.21:22:55</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-04-21.05:22:54</LocalIntrospectionTimestamp>
       <CollationName>utf16_general_ci</CollationName>
     </schema>
     <user id="300" parent="1" name="nacos"/>
@@ -1281,7 +1281,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="344" parent="311" name="session_id">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1345,124 +1345,131 @@ to_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="357" parent="314" name="from_id">
+    <column id="357" parent="314" name="req_id">
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="358" parent="314" name="to_id">
+    <column id="358" parent="314" name="from_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="359" parent="314" name="read_status">
-      <Comment>o未读 1已读</Comment>
+    <column id="359" parent="314" name="to_id">
       <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="360" parent="314" name="add_wording">
-      <Comment>验证信息</Comment>
-      <DasType>varchar(255)|0s</DasType>
+    <column id="360" parent="314" name="read_status">
+      <Comment>o未读 1已读</Comment>
+      <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="361" parent="314" name="approve_status">
+    <column id="361" parent="314" name="add_wording">
+      <Comment>验证信息</Comment>
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="362" parent="314" name="approve_status">
       <Comment>审批状态&#xd;
 0同意 1不同意</Comment>
       <DasType>int|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="362" parent="314" name="create_time">
-      <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
     </column>
-    <index id="363" parent="314" name="PRIMARY">
-      <ColNames>from_id
+    <column id="363" parent="314" name="create_time">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <index id="364" parent="314" name="PRIMARY">
+      <ColNames>req_id
+from_id
 to_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="364" parent="314" name="PRIMARY">
+    <key id="365" parent="314" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="365" parent="315" name="account_id">
+    <column id="366" parent="315" name="account_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="366" parent="315" name="avatar_name">
+    <column id="367" parent="315" name="avatar_name">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="367" parent="315" name="avatar_create_time">
+    <column id="368" parent="315" name="avatar_create_time">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="368" parent="315" name="PRIMARY">
+    <index id="369" parent="315" name="PRIMARY">
       <ColNames>account_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="369" parent="315" name="PRIMARY">
+    <key id="370" parent="315" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="370" parent="316" name="message_id">
+    <column id="371" parent="316" name="message_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="371" parent="316" name="message_body">
+    <column id="372" parent="316" name="message_body">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="372" parent="316" name="message_create">
+    <column id="373" parent="316" name="message_create">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="373" parent="316" name="message_del_flat">
+    <column id="374" parent="316" name="message_del_flat">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="374" parent="316" name="message_send_time">
+    <column id="375" parent="316" name="message_send_time">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
     </column>
-    <index id="375" parent="316" name="PRIMARY">
+    <index id="376" parent="316" name="PRIMARY">
       <ColNames>message_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="376" parent="316" name="PRIMARY">
+    <key id="377" parent="316" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="377" parent="317" name="message_id">
+    <column id="378" parent="317" name="message_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="378" parent="317" name="from_id">
+    <column id="379" parent="317" name="from_id">
       <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="379" parent="317" name="to_id">
+    <column id="380" parent="317" name="to_id">
       <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="380" parent="317" name="owner_id">
+    <column id="381" parent="317" name="owner_id">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <index id="381" parent="317" name="PRIMARY">
+    <index id="382" parent="317" name="PRIMARY">
       <ColNames>message_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="382" parent="317" name="PRIMARY">
+    <key id="383" parent="317" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

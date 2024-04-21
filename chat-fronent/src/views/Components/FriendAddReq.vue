@@ -3,12 +3,16 @@
 import {get} from "@/net/net";
 import {reactive, ref} from "vue";
 import axios from "axios";
+import {SendToAddFriend} from "@/net/Socket";
+import {userstore} from "@/store/userstore";
+import {ElMessage} from "element-plus";
+import {websocketstore} from "@/store/websocketstore";
 
 const prop = defineProps({
   Item : Object
 })
-console.info(prop.Item)
 
+const socket = websocketstore().socket
 const loading = ref(false)
 let UserDetail
 get(`/account/getOtherDetail?id=${prop.Item.fromId}`,(data)=>{
@@ -29,6 +33,15 @@ if(prop.Item.approveStatus === 0){
   isdisabled.value = true
 }
 
+
+function approveAddFriend(){
+  SendToAddFriend(userstore.user.id,prop.Item.fromId,socket,3000,prop.Item.reqId,()=>{
+    approve.value ="已同意"
+    isdisabled.value = true
+    ElMessage.success("您已经,同意请求")
+  })
+}
+
 </script>
 
 <template>
@@ -39,7 +52,7 @@ if(prop.Item.approveStatus === 0){
       <div class="Second-floor">验证消息：{{prop.Item.addWording}}</div>
     </div>
     <div class="approve-div" style="display: block">
-      <el-button class="approve-button" style="border: none" :disabled="isdisabled">{{approve}}</el-button>
+      <el-button @click="approveAddFriend" class="approve-button" style="border: none" :disabled="isdisabled">{{approve}}</el-button>
     </div>
   </div>
 </template>

@@ -21,7 +21,6 @@ public abstract class BaseProcess {
         processBefore();
         //从信息中得到要发送的channel
         NioSocketChannel channel = sessionSocketHolder.get(messagePack.getToId());
-
         //得到channel 后直接将信息发送给 指定客户端
         if(channel != null){
             log.info("Send msg------->" + messagePack);
