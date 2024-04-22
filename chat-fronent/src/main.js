@@ -17,13 +17,11 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
 import V3Emoji from 'vue3-emoji'
-import screenShort from "vue-web-screen-shot";
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+
 
 library.add(fas, far, fab)
-
-
-
-
 
 
 axios.defaults.baseURL = 'http://localhost:8080'
@@ -33,12 +31,16 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 
+app.use(Toast, {
+    transition: "Vue-Toastification__bounce",
+    maxToasts:1,
+    newestOnTop: true
+});
 
 app.use(V3Emoji)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('font-awesome-layers', FontAwesomeLayers)
 app.component('font-awesome-layers-text', FontAwesomeLayersText)
-app.use(screenShort, { enableWebRtc: false })
 app.use(ElementPlus)
 app.use(router)
 app.use(VueAxios,axios)

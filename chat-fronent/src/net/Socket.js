@@ -1,8 +1,22 @@
 import {ElMessage, ElNotification} from "element-plus";
 import {h, ref} from "vue";
 import {Bell} from "@element-plus/icons-vue";
-import {get} from "@/net/net";
+import Toast, { useToast } from "vue-toastification";
 
+
+function getLen(str) {
+    let len = 0;
+    for (let i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+        //单字节加1
+        if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
+            len++;
+        } else {
+            len += 3;
+        }
+    }
+    return len;
+}
 
 let ByteBuffer = function (arrayBuf, offset) {
 
@@ -411,7 +425,7 @@ function SendToOne(userId,toId,messagebox,socket){
     if (socket.readyState === WebSocket.OPEN) {
         let command = 1102;
         let messageType = 0x0;
-        let data = {"userId": userId,"toId":toId,"command":command,"data":messagebox};
+        let data = {"userId": userId,"toId":toId,"command":command,"data":{"msgbody":messagebox}};
         let jsonData = JSON.stringify(data);
         let bodyLen = getLen(jsonData);
         let loginMsg = new ByteBuffer();
@@ -424,6 +438,65 @@ function SendToOne(userId,toId,messagebox,socket){
         ElMessage.warning("发送不成功 请重新接链接")
     }
 
+}
+
+const toast = useToast()
+function ListenMessage(socket,success){
+
+    socket.onmessage = function (event) {
+
+        let data = event.data;
+        let reader = new FileReader(); // 使用FileReader读取Blob数据
+        reader.onload = function() {
+            // 将读取到的ArrayBuffer转换为Uint8Array便于处理
+            const arrayBuffer = this.result;
+            const view = new DataView(arrayBuffer);
+            const command = view.getInt32(0); // 假设为大端模式
+            const length = view.getInt32(4); // 假设为大端模式
+            const jsonString = new TextDecoder("utf-8").decode(new Uint8Array(arrayBuffer.slice(8, 8 + length)));
+            const messageObject = JSON.parse(jsonString);
+            const messageBody = (messageObject.data)
+            console.log(messageBody)
+
+
+            if (command === 1102 && !window.location.href.includes('messageSession/messageContent')) {
+                ElNotification({
+                    duration: 2000,
+                    icon: Bell  ,
+                    title: '你有收到了一条' + messageBody.nickname  +'的消息',
+                    offset: 100,
+                    message: h('i', { style: 'display:inline-block;width: 200px;color: red;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' }, messageBody.msgbody),
+                })
+
+                toast.info("I'm a toast!", {
+                    position: "top-right",
+                    timeout: 2000,
+                    closeOnClick: true,
+                    pauseOnFocusLoss: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    draggablePercent: 0.6,
+                    showCloseButtonOnHover: false,
+                    hideProgressBar: true,
+                    closeButton: "button",
+                    icon: true,
+                    rtl: false,
+                });
+            }else if(command === 1102){
+                success(messageObject)
+            }else if(command === 3003){
+                ElMessage.success(messageBody)
+            }
+
+
+
+
+        };
+        // 读取Blob数据为ArrayBuffer进行处理
+        reader.readAsArrayBuffer(data);
+
+
+    }
 }
 
 function SendToAddFriend(userId,toId,socket,command,wording,success){
@@ -449,60 +522,7 @@ function SendToAddFriend(userId,toId,socket,command,wording,success){
 
 
 
-function getLen(str) {
-    let len = 0;
-    for (let i = 0; i < str.length; i++) {
-        var c = str.charCodeAt(i);
-        //单字节加1
-        if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
-            len++;
-        } else {
-            len += 3;
-        }
-    }
-    return len;
-}
 
-
-function ListenMessage(socket,success){
-
-    socket.onmessage = function (event) {
-
-
-        let data = event.data;
-        let reader = new FileReader(); // 使用FileReader读取Blob数据
-        reader.onload = function() {
-            // 将读取到的ArrayBuffer转换为Uint8Array便于处理
-            const arrayBuffer = this.result;
-            const view = new DataView(arrayBuffer);
-            const command = view.getInt32(0); // 假设为大端模式
-            const length = view.getInt32(4); // 假设为大端模式
-            const jsonString = new TextDecoder("utf-8").decode(new Uint8Array(arrayBuffer.slice(8, 8 + length)));
-            const messageObject = JSON.parse(jsonString);
-            const messageBody = (messageObject.data)
-            console.log(messageObject)
-
-
-            // if (command === 1102) {
-            //     ElNotification({
-            //         duration: 20000,
-            //         icon: Bell  ,
-            //         title: '你有收到了一条' + messageObject.data.nickName  +'的消息',
-            //         offset: 100,
-            //         message: h('i', { style: 'display:inline-block;width: 200px;color: red;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' }, messageObject.data.data),
-            //     })
-            // }
-
-            if(command === 1102){
-                success(messageObject)
-            }
-        };
-        // 读取Blob数据为ArrayBuffer进行处理
-        reader.readAsArrayBuffer(data);
-
-
-        }
-}
 
 
 

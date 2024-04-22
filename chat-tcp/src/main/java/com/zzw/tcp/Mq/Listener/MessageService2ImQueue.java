@@ -35,7 +35,6 @@ public class MessageService2ImQueue {
                         MessagePack messagePack =
                                 JSONObject.parseObject(msgStr, MessagePack.class);
                         JSONObject data = JSON.parseObject(msg);
-                        messagePack.setData(data);
                         BaseProcess messageProcess = ProcessFactory
                                 .getMessageProcess(messagePack.getCommand());
 

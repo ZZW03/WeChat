@@ -6,6 +6,7 @@ import com.rabbitmq.client.Channel;
 import com.zzw.common.Const;
 import com.zzw.common.model.enums.Command.CommandType;
 import com.zzw.common.proto.Message;
+import com.zzw.common.proto.MessagePack;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -31,7 +32,7 @@ public class MqMessageProducer {
     }
 
 
-    public void sendMessage(Message message, Integer command) {
+    public void sendMessage(MessagePack<Object> message, Integer command) {
 
 
         Channel channel = null;

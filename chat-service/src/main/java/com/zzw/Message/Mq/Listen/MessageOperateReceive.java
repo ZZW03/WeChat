@@ -7,6 +7,7 @@ import com.rabbitmq.client.Channel;
 import com.zzw.Account.Service.AccountDetailService;
 import com.zzw.common.Const;
 import com.zzw.common.proto.Message;
+import com.zzw.common.proto.MessagePack;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -42,23 +43,20 @@ public class MessageOperateReceive {
         try{
 
             String msgStr = String.valueOf(msg);
-            Message Message =
-                    JSONObject.parseObject(msgStr, Message.class);
+            MessagePack Message =
+                    JSONObject.parseObject(msgStr, MessagePack.class);
 
-            JSONObject  json = (JSONObject) JSON.toJSON(Message.getMessagePack());
+            JSONObject  json = (JSONObject) JSON.toJSON(Message);
+            JSONObject jsonData = (JSONObject) JSON.toJSON(json.get("data"));
             Integer id = (Integer) json.get("userId");
             String nickname = accountService.SelName(id);
             JSONObject name = JSON.parseObject(nickname);
             String endName = (String) name.get("data");
-            json.put("nickName",endName);
+            jsonData.put("nickname",endName);
+            json.put("data",jsonData);
             String messagebody = JSON.toJSONString(json);
             amqpTemplate.convertAndSend(Const.MQ.MessageService2Im,messagebody);
             channel.basicAck(deliveryTag, false);
-
-            //处理完信息
-            //如何我不写确认 那么
-            //如果没ack 那么就不会basicPublish
-
 
 
         }catch (Exception e) {

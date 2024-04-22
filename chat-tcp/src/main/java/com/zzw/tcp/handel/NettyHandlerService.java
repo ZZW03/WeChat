@@ -13,6 +13,7 @@ import com.zzw.common.model.req.friend.CheckStatusReq;
 import com.zzw.common.pack.LoginPack;
 import com.zzw.common.proto.Message;
 import com.zzw.common.proto.MessagePack;
+import com.zzw.common.utils.SnowflakeIdWorker;
 import com.zzw.tcp.Mq.Send.MqMessageProducer;
 import com.zzw.tcp.fegin.MessageClient;
 import com.zzw.tcp.utils.SocketHolder;
@@ -22,12 +23,14 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.AttributeKey;
 import jakarta.annotation.Resource;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 
 
+@Slf4j
 @Component
 public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
 
@@ -56,6 +59,10 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
 
 
         Integer command = msg.getMessageHeader().getCommand();
+        Long messageId = SnowflakeIdWorker.nextId();
+        MessagePack messagePack = JSON.parseObject(JSONObject.toJSONString(msg.getMessagePack()), new TypeReference<MessagePack>() {
+        }.getType());
+        messagePack.setMessageId(messageId);
         // 收到的是登录消息 做的处理
         if(command.equals(SystemCommand.LOGIN.getCommand())) {
             LoginPack loginPack = JSON.parseObject(JSONObject.toJSONString(msg.getMessagePack()), new TypeReference<LoginPack>() {
@@ -72,6 +79,7 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
                 //todo 通知下线
                 message.setCommand(SystemCommand.FORCEOFFLINE.getCommand());
                 message.setData("另外一段已经登录，你已经强制下线");
+                message.setMessageId(messageId);
                 nioSocketChannel.writeAndFlush(message);
                 //todo stringRedisTemplate移除 socketHolder中移除
                 socketHolder.remove(userId);
@@ -83,19 +91,17 @@ public class NettyHandlerService extends SimpleChannelInboundHandler<Message> {
 
         }else if(command.equals(MessageCommand.MSG_P2P.getCommand())){
 
-            MessagePack messagePack = JSON.parseObject(JSONObject.toJSONString(msg.getMessagePack()), new TypeReference<MessagePack>() {
-            }.getType());
 
             if(CheckStatus(messagePack)){
-                messageProducer.sendMessage(msg,command);
+                messageProducer.sendMessage(messagePack,command);
             }else{
                 messagePack.setCommand(FriendshipEventCommand.FRIEND_REFUSE_COMMUNICATION.getCommand());
                 messagePack.setData(FriendShipError.U_IN_HIS_BLACK.getError());
                 ctx.channel().writeAndFlush(messagePack);
             }
 
-        }else{
-            messageProducer.sendMessage(msg,command);
+        } else {
+            messageProducer.sendMessage(messagePack,command);
         }
     }
 

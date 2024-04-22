@@ -88,8 +88,4 @@ public class GlobalHttpClientConfig {
 		return builder.build();
 	}
 
-
-
-
-
 }

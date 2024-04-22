@@ -6,6 +6,7 @@ import com.alibaba.fastjson2.TypeReference;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.zzw.Account.Service.AccountDetailService;
+import com.zzw.Friend.Mq.Send.FriendMqOperation;
 import com.zzw.Friend.Service.FriendshipReqService;
 import com.zzw.Friend.Service.FriendshipService;
 import com.zzw.common.Const;
@@ -46,6 +47,9 @@ public class FriendMqListen {
     @Resource
     FriendshipReqService friendshipReqService;
 
+    @Resource
+    FriendMqOperation friendMqOperation;
+
     @Value("${spring.rabbitmq.listener.simple.retry.max-attempts}")
     Integer value ;
 
@@ -55,42 +59,40 @@ public class FriendMqListen {
         long deliveryTag = MainMessage.getMessageProperties().getDeliveryTag();
         try {
 
-
             //todo 做好友添加的业务
             String msgStr = String.valueOf(msg);
-            Message message = JSONObject.parseObject(msgStr, Message.class);
-
-            Integer command = message.getMessageHeader().getCommand();
-            MessagePack messagePack = JSON.parseObject(JSONObject.toJSONString(message.getMessagePack()), new TypeReference<MessagePack>() {
-            }.getType());
+            MessagePack messagePack = JSONObject.parseObject(msgStr, MessagePack.class);
+            Integer command = messagePack.getCommand();
 
             // 解析data里面的数据
             JSONObject json = (JSONObject) JSON.toJSON(messagePack.getData());
 
             if (command.equals(FriendshipEventCommand.FRIEND_REQUEST.getCommand())) {
-                //todo 做好友申请的添加的业务
-
                 Integer fromId = messagePack.getUserId();
                 Integer toId = messagePack.getToId();
                 String wording = (String) json.get("wording");
                 AddFriendReq addFriendReq = new AddFriendReq(toId, wording);
                 if (friendshipReqService.selOneReq(fromId, toId)) {
-
                     friendshipReqService.AddReq(fromId, addFriendReq);
                 } else {
                     friendshipReqService.UpdateReaded(fromId, toId);
                 }
+
+                // todo 回一个ack信号
+                friendMqOperation.ack(messagePack);
+
                 log.info("完成添加好友业务");
+
+
             }if(command.equals(FriendshipEventCommand.FRIEND_ADD.getCommand())){
-                // todo 添加好友的业务
                 Integer fromId = messagePack.getUserId();
                 Integer toId = messagePack.getToId();
                 Integer reqId = (Integer) json.get("wording");
-                System.out.println(friendshipService.AddFriend(fromId, toId, reqId));
+                friendshipService.AddFriend(fromId, toId, reqId);
                 log.info("添加好友业务完成");
+                // todo 回一个ack信号 告诉客户端已经添加完成了
+                friendMqOperation.ack(messagePack);
             }
-
-
 
             //主动回ack
             channel.basicAck(deliveryTag, false);

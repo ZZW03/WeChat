@@ -24,13 +24,13 @@ public class WebSocketMessageEncoder extends MessageToMessageEncoder<MessagePack
         try {
 
             String s = JSONObject.toJSONString(msg);
-
             ByteBuf byteBuf = Unpooled.directBuffer(8+s.length());
             byte[] bytes = s.getBytes();
             byteBuf.writeInt(msg.getCommand());
             byteBuf.writeInt(bytes.length);
             byteBuf.writeBytes(bytes);
             out.add(new BinaryWebSocketFrame(byteBuf));
+
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -52,8 +52,8 @@ const userstore = userdetailstore()
 let loading =ref(false)
 let ToUserDetail
 let FromUserAvatar
-get(`/account/getOtherDetail?id=${toId}`,(data)=> {
 
+get(`/account/getOtherDetail?id=${toId}`,(data)=> {
   ToUserDetail = reactive({
     NickName:data.data.accountNickName,
     Avatar: "" + `${axios.defaults.baseURL}/images/${data.data.accountAvatar}`,
@@ -62,11 +62,11 @@ get(`/account/getOtherDetail?id=${toId}`,(data)=> {
 
 
   ListenMessage(socket,(data)=>{
-    console.log(data.data.data)
-    displayMessage(data.data.data,"received")
+    displayMessage(data.data.msgbody,"received")
   })
   loading.value = true
 })
+
 
 function SendMessage(){
   SendToOne(detailstore.userdetail.accountId,toId,textarea.value,socket)
