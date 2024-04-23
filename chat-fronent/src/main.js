@@ -36,7 +36,6 @@ app.use(Toast, {
     maxToasts:1,
     newestOnTop: true
 });
-
 app.use(V3Emoji)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('font-awesome-layers', FontAwesomeLayers)

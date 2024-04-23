@@ -1,8 +1,11 @@
 package com.zzw.Message.Mq.Send;
 
+import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.zzw.common.Const;
 import com.zzw.common.model.dto.MessageContent;
+import com.zzw.common.model.enums.Command.FriendshipEventCommand;
+import com.zzw.common.model.enums.Command.MessageCommand;
 import com.zzw.common.proto.MessagePack;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -36,5 +39,25 @@ public class MessageProducer {
         messagePack.setData(JSONObject.toJSONString(messageContent));
         String body = JSONObject.toJSONString(messagePack);
         return sendMessage(body);
+    }
+
+    public void ack(MessagePack<Object> messagePack){
+        JSONObject jsonObject= (JSONObject) JSON.toJSON(messagePack);
+        Integer command = (Integer) jsonObject.get("command");
+        Integer foId = (Integer) jsonObject.get("userId");
+        messagePack.setToId(foId);
+        messagePack.setUserId(0);
+        if(command.equals(MessageCommand.MSG_P2P.getCommand())){
+            messagePack.setData("发送成功");
+        } else if (command.equals(FriendshipEventCommand.FRIEND_ADD.getCommand())){
+            messagePack.setData("添加成功");
+        }
+        String msg = JSONObject.toJSONString(messagePack);
+
+        if(this.sendMessage(msg)){
+            log.info("回复成功");
+        }else {
+            log.info("回复失败 ， 系统出现问题");
+        }
     }
 }

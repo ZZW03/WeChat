@@ -4,13 +4,15 @@ import {useRoute} from "vue-router";
 import {ListenMessage, SendToOne} from "@/net/Socket";
 import {websocketstore} from "@/store/websocketstore";
 import {get} from "@/net/net";
-import {reactive, ref, watch} from "vue";
+import {getCurrentInstance, nextTick, onUpdated, reactive, ref, watch} from "vue";
 import axios from "axios";
 import {CirclePlus, More, Phone, Platform, Scissor, Search, VideoCamera} from "@element-plus/icons-vue";
 import V3Emoji from 'vue3-emoji'
 import 'vue3-emoji/dist/style.css'
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import {userdetailstore} from "@/store/userdetailstore";
+import { onMounted } from 'vue';
+
 
 const customIcon = {
   'Smileys & Emotion': '😚',
@@ -69,15 +71,24 @@ get(`/account/getOtherDetail?id=${toId}`,(data)=> {
 
 
 function SendMessage(){
-  SendToOne(detailstore.userdetail.accountId,toId,textarea.value,socket)
-  displayMessage(textarea.value,"sent")
-  textarea.value = ""
+  if(textarea.value.trim() == ""){
+
+  }else{
+
+    SendToOne(detailstore.userdetail.accountId,toId,textarea.value,socket)
+    scrollToBottom()
+    displayMessage(textarea.value,"sent")
+    textarea.value = ""
+  }
+
 }
 
 
 
 function displayMessage(message, sender) {
+
   const chatContainer = document.getElementById("chat-container");
+
   if (!chatContainer) {
     console.error("Chat container element not found.");
     return;
@@ -122,7 +133,37 @@ function displayMessage(message, sender) {
 
   // 将总容器添加到聊天容器中
   chatContainer.appendChild(totalMessageContainer);
+
+  const scrollbar = document.getElementById("my-scrollbar");
+
+  // 确保滚动条组件存在
+  if (scrollbar) {
+    // 使用scrollIntoView方法使新添加的消息位于视口底部
+    chatContainer.lastChild.scrollIntoView({ behavior: "smooth" });
+  }
+
 }
+
+function keydown(event) {
+  if(event.key === 'Enter'){
+      SendMessage()
+  }
+}
+
+
+
+
+const scrollbarRef = ref(null);
+const contentWrapperRef = ref(null);
+
+const scrollToBottom = () => {
+  if (scrollbarRef.value) {
+    scrollbarRef.value.scrollbar.scrollToBottom();
+  }
+};
+
+
+
 
 
 
@@ -145,15 +186,15 @@ function displayMessage(message, sender) {
         </div>
       </el-header>
       <el-divider />
-      <el-scrollbar style="height: 50%">
-        <el-main id="chat-container">
+      <el-scrollbar id="my-scrollbar" ref="scrollbar" style="height: 50vh">
+        <el-main id="chat-container" ref="contentWrapper">
 
 
 
         </el-main>
       </el-scrollbar>
       <el-divider style="margin: 10px"/>
-      <el-footer class="foot">
+      <el-footer class="foot" style="height: 10%">
         <div>
           <div  >
             <div style="display: inline-block;margin-left: 20px">
@@ -181,8 +222,8 @@ function displayMessage(message, sender) {
             
           </div>
           <div style="height: 250px;margin-top: 10px">
-            <textarea class="text-area" v-model="textarea" ></textarea>
-            <el-button class="send-button" @click="SendMessage" :disabled="disable">发送</el-button>
+            <textarea @keydown.enter="keydown" id="text-area" class="text-area" v-model="textarea" ></textarea>
+            <el-button id="send-button" class="send-button" @click="SendMessage" :disabled="disable">发送</el-button>
           </div>
         </div>
       </el-footer>
@@ -205,7 +246,7 @@ function displayMessage(message, sender) {
 }
 
 .foot{
-  height: 30%;
+  height: 20%;
 }
 .contain-main{
   padding: 0;
@@ -240,7 +281,7 @@ function displayMessage(message, sender) {
   font-size: 17px;
   font-family: 微软雅黑,serif;
   width: 98%;
-  height: 90%;
+  height: 80%;
   resize: none ;
   display: inline-block;
 }
@@ -329,6 +370,11 @@ function displayMessage(message, sender) {
 .avatar-received {
   /* 默认样式即为左侧，无需额外设置 */
 }
+:deep(.el-footer) {
+  height: 25%;
+}
+
+
 
 
 </style>

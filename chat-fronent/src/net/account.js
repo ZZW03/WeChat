@@ -22,7 +22,7 @@ function login(username, password, remember, success){
             ElMessage.success(`登录成功，欢迎 ${data.data.name} 来到我们的系统`)
             success(data)
         }else{
-            console.info(123)
+
             ElMessage.error(data)
         }
     })

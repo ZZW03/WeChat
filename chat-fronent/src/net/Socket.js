@@ -456,7 +456,7 @@ function ListenMessage(socket,success){
             const jsonString = new TextDecoder("utf-8").decode(new Uint8Array(arrayBuffer.slice(8, 8 + length)));
             const messageObject = JSON.parse(jsonString);
             const messageBody = (messageObject.data)
-            console.log(messageBody)
+            console.log(messageObject)
 
 
             if (command === 1102 && !window.location.href.includes('messageSession/messageContent')) {
@@ -467,22 +467,21 @@ function ListenMessage(socket,success){
                     offset: 100,
                     message: h('i', { style: 'display:inline-block;width: 200px;color: red;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;' }, messageBody.msgbody),
                 })
-
-                toast.info("I'm a toast!", {
-                    position: "top-right",
-                    timeout: 2000,
-                    closeOnClick: true,
-                    pauseOnFocusLoss: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    draggablePercent: 0.6,
-                    showCloseButtonOnHover: false,
-                    hideProgressBar: true,
-                    closeButton: "button",
-                    icon: true,
-                    rtl: false,
-                });
-            }else if(command === 1102){
+                // toast.info("I'm a toast!", {
+                //     position: "top-right",
+                //     timeout: 2000,
+                //     closeOnClick: true,
+                //     pauseOnFocusLoss: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     draggablePercent: 0.6,
+                //     showCloseButtonOnHover: false,
+                //     hideProgressBar: true,
+                //     closeButton: "button",
+                //     icon: true,
+                //     rtl: false,
+                // });
+            }else if(command === 1102 && messageObject.userId !== 0 ){
                 success(messageObject)
             }else if(command === 3003){
                 ElMessage.success(messageBody)

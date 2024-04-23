@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="ack 前端">
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/vue-web-screen-shot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/node_modules/.vite/deps/vue-web-screen-shot.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475/storage_v2/_src_/schema/chat.WJMuAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475/storage_v2/_src_/schema/chat.WJMuAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/MessageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/MessageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Listen/MessageOperateReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Listen/MessageOperateReceive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Send/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Send/MessageProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web.html" beforeDir="false" afterPath="$PROJECT_DIR$/web.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +151,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Spring Boot.ChatServiceApplication">
     <configuration name="ChatServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="chat-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzw.ChatServiceApplication" />
@@ -184,9 +195,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
-        <item itemvalue="Spring Boot.TcpServiceApplication" />
         <item itemvalue="Spring Boot.ChatServiceApplication" />
+        <item itemvalue="Spring Boot.TcpServiceApplication" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -224,6 +235,9 @@
       <workItem from="1713589911549" duration="5772000" />
       <workItem from="1713674947987" duration="12939000" />
       <workItem from="1713754356516" duration="17245000" />
+      <workItem from="1713772817132" duration="55000" />
+      <workItem from="1713852108235" duration="5349000" />
+      <workItem from="1713857520684" duration="3330000" />
     </task>
     <task id="LOCAL-00001" summary="tcp">
       <option name="closed" value="true" />
@@ -377,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713772735406</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="ack 前端">
+      <option name="closed" value="true" />
+      <created>1713772863918</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713772863918</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

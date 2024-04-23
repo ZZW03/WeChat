@@ -5,7 +5,9 @@ import com.alibaba.fastjson2.JSONObject;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.zzw.Account.Service.AccountDetailService;
+import com.zzw.Message.Mq.Send.MessageProducer;
 import com.zzw.common.Const;
+import com.zzw.common.model.enums.Command.MessageCommand;
 import com.zzw.common.proto.Message;
 import com.zzw.common.proto.MessagePack;
 import jakarta.annotation.Resource;
@@ -35,6 +37,9 @@ public class MessageOperateReceive {
     AmqpTemplate amqpTemplate;
 
     @Resource
+    MessageProducer messageProducer;
+
+    @Resource
     AccountDetailService accountService;
 
     @RabbitHandler
@@ -43,19 +48,43 @@ public class MessageOperateReceive {
         try{
 
             String msgStr = String.valueOf(msg);
-            MessagePack Message =
+            MessagePack messagePack =
                     JSONObject.parseObject(msgStr, MessagePack.class);
+            Integer command = messagePack.getCommand();
 
-            JSONObject  json = (JSONObject) JSON.toJSON(Message);
-            JSONObject jsonData = (JSONObject) JSON.toJSON(json.get("data"));
-            Integer id = (Integer) json.get("userId");
-            String nickname = accountService.SelName(id);
-            JSONObject name = JSON.parseObject(nickname);
-            String endName = (String) name.get("data");
-            jsonData.put("nickname",endName);
-            json.put("data",jsonData);
-            String messagebody = JSON.toJSONString(json);
-            amqpTemplate.convertAndSend(Const.MQ.MessageService2Im,messagebody);
+            if(command.equals(MessageCommand.MSG_P2P.getCommand())){
+                JSONObject  json = (JSONObject) JSON.toJSON(messagePack);
+                JSONObject jsonData = (JSONObject) JSON.toJSON(json.get("data"));
+                Integer id = (Integer) json.get("userId");
+                String nickname = accountService.SelName(id);
+                JSONObject name = JSON.parseObject(nickname);
+                String endName = (String) name.get("data");
+                jsonData.put("nickname",endName);
+                json.put("data",jsonData);
+                String messagebody = JSON.toJSONString(json);
+                //如果messageID 存在map中 就不再发送
+                //todo 幂等性去重
+                amqpTemplate.convertAndSend(Const.MQ.MessageService2Im,messagebody);
+                //todo 回复ack
+                messageProducer.ack(messagePack);
+                //todo  存储信息
+                //1 先存入数据库
+                //2 再存入到map中
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             channel.basicAck(deliveryTag, false);
 
 
