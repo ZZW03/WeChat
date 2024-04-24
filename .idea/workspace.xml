@@ -4,21 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="ack 前端">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475/storage_v2/_src_/schema/chat.WJMuAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475/storage_v2/_src_/schema/chat.WJMuAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="store">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1eb5b67-87ce-48ef-b8ad-3b4b9ebf68e2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d1eb5b67-87ce-48ef-b8ad-3b4b9ebf68e2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/Socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/net/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/net/account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/Components/SessionDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/Components/SessionDetail.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/ConversationSessionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/ConversationSessionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/MessageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/MessageMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/HistoryMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/HistoryMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/DBMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Listen/MessageOperateReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Listen/MessageOperateReceive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Send/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Send/MessageProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web.html" beforeDir="false" afterPath="$PROJECT_DIR$/web.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Service/impl/ConversationSessionServiceIml.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Service/impl/ConversationSessionServiceIml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +236,11 @@
       <workItem from="1713772817132" duration="55000" />
       <workItem from="1713852108235" duration="5349000" />
       <workItem from="1713857520684" duration="3330000" />
+      <workItem from="1713863327552" duration="107000" />
+      <workItem from="1713877260196" duration="207000" />
+      <workItem from="1713879869545" duration="9000" />
+      <workItem from="1713879956325" duration="180000" />
+      <workItem from="1713960407688" duration="7493000" />
     </task>
     <task id="LOCAL-00001" summary="tcp">
       <option name="closed" value="true" />
@@ -399,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713772863918</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="store">
+      <option name="closed" value="true" />
+      <created>1713863407672</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1713863407672</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +443,8 @@
     <MESSAGE value="修改一点点 摆烂" />
     <MESSAGE value="操 没做什么改变啊" />
     <MESSAGE value="ack 前端" />
-    <option name="LAST_COMMIT_MESSAGE" value="ack 前端" />
+    <MESSAGE value="store" />
+    <option name="LAST_COMMIT_MESSAGE" value="store" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

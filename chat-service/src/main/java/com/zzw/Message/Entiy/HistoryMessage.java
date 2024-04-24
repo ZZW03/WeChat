@@ -9,8 +9,8 @@ import lombok.Data;
 @TableName(value = "db_message_history")
 public class HistoryMessage {
     @TableId(value = "message_id")
-    Integer messageId;
-    Integer formId;
+    Long messageId;
+    Integer fromId;
     Integer toId;
     Integer ownerId;
 }

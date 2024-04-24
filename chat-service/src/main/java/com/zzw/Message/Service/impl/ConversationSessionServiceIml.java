@@ -18,4 +18,5 @@ public class ConversationSessionServiceIml extends ServiceImpl<ConversationSessi
         Wrapper<ConversationSession> wrapper = new QueryWrapper<ConversationSession>().eq("from_id",from_id);
         return RestBean.success(this.list(wrapper)).ToJSON();
     }
+
 }

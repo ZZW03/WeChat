@@ -10,10 +10,11 @@ const prop = defineProps({
   SessionId: Number
 })
 
-
+let messageBodyJson
 let UserDetail
 let MessageDetail
 let loading = ref(false)
+
 get(`/account/getOtherDetail?id=${prop.Id}`,(data)=>{
   UserDetail = reactive({
     NickName: "" + data.data.accountNickName,
@@ -26,7 +27,7 @@ get(`/account/getOtherDetail?id=${prop.Id}`,(data)=>{
       fromId:data.data.fromId,
       messageBody:data.data.messageBody
     })
-
+    messageBodyJson = JSON.parse(MessageDetail.messageBody)
     if(prop.FormId == MessageDetail.fromId){
       MessageDetail.nickName = ""
     }
@@ -42,7 +43,7 @@ get(`/account/getOtherDetail?id=${prop.Id}`,(data)=>{
   <div v-if="loading">
     <el-avatar class="User-icon" :src="UserDetail.Avatar"/>
     <span style="display: inline-block; height:50%;width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; position: relative; bottom: 8px;font-size: 15px">{{UserDetail.NickName}}</span>
-    <span style="display: inline-block; width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; position: relative; right: 100px; top: 10px; font-size: 11px;color: grey">{{MessageDetail.nickName}}  {{MessageDetail.messageBody}}</span>
+    <span style="display: inline-block; width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; position: relative; right: 100px; top: 10px; font-size: 11px;color: grey">{{MessageDetail.nickName}}  {{messageBodyJson.msgbody}}</span>
   </div>
 </template>
 

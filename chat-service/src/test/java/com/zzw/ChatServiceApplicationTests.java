@@ -4,9 +4,13 @@ import com.zzw.Account.Service.AccountDetailService;
 import com.zzw.Account.Service.AccountService;
 import com.zzw.Friend.Service.FriendshipService;
 import com.zzw.Friend.Service.impl.FriendshipServiceImpl;
+import com.zzw.Message.Dao.ConversationSessionMapper;
 import com.zzw.Message.Dao.MessageMapper;
+import com.zzw.Message.Entiy.DBMessage;
+import com.zzw.Message.Entiy.HistoryMessage;
 import com.zzw.Message.Service.ConversationSessionService;
 import com.zzw.Message.Service.P2PMessageService;
+import com.zzw.Message.Service.StoreMessageService;
 import com.zzw.common.model.dto.MessageContent;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
@@ -33,11 +37,15 @@ class ChatServiceApplicationTests {
 	@Resource
 	MessageMapper messageMapper;
 
+	@Resource
+	StoreMessageService storeMessageService;
 
+	@Resource
+	ConversationSessionMapper conversationSessionMapper;
 
 
 	@Test
 	void contextLoads() {
-
+		System.out.println(conversationSessionMapper.insertMessage(351619241738241L, 1));
 	}
 }

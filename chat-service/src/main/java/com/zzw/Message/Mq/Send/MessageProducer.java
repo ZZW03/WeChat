@@ -46,6 +46,7 @@ public class MessageProducer {
         Integer command = (Integer) jsonObject.get("command");
         Integer foId = (Integer) jsonObject.get("userId");
         messagePack.setToId(foId);
+        // 0 代表服务器发送 发送确认消息
         messagePack.setUserId(0);
         if(command.equals(MessageCommand.MSG_P2P.getCommand())){
             messagePack.setData("发送成功");
@@ -53,7 +54,6 @@ public class MessageProducer {
             messagePack.setData("添加成功");
         }
         String msg = JSONObject.toJSONString(messagePack);
-
         if(this.sendMessage(msg)){
             log.info("回复成功");
         }else {

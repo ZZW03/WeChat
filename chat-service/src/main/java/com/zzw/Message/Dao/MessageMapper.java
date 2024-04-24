@@ -1,13 +1,13 @@
 package com.zzw.Message.Dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zzw.Message.Entiy.Message;
+import com.zzw.Message.Entiy.DBMessage;
 import com.zzw.common.model.resp.SessionDetailResp;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface MessageMapper extends BaseMapper<Message> {
+public interface MessageMapper extends BaseMapper<DBMessage> {
 
 
     // 查某个session中的第一条信息

@@ -146,7 +146,8 @@ function displayMessage(message, sender) {
 
 function keydown(event) {
   if(event.key === 'Enter'){
-      SendMessage()
+    SendMessage()
+    event.preventDefault();
   }
 }
 
@@ -284,6 +285,7 @@ const scrollToBottom = () => {
   height: 80%;
   resize: none ;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .send-button{

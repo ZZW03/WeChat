@@ -8,10 +8,11 @@ import java.util.Date;
 
 @Data
 @TableName(value = "db_message")
-public class Message {
+public class DBMessage {
     @TableId(value = "message_id")
-    Integer messageId;
-    String messageBody;
-    Integer messageDelflat = 0;
+    Long messageId;
+    Object messageBody;
+
+    Integer messageDelFlat = 0;
     String messageSendTime = String.valueOf(new Date());
 }
