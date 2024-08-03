@@ -14,9 +14,10 @@ public interface ImageService extends IService<StoreImage> {
 
     String uploadAvatar(MultipartFile file , int id) throws IOException;
     String uploadImg(MultipartFile file , int id) throws IOException;
-//    void fetchImageFromMinio(OutputStream stream, String image) throws Exception;
-//
-//    void fetchImageFromCache(OutputStream stream, String image) throws Exception;
+
+    void fetchImageFromMinio(OutputStream stream, String image) throws Exception;
+
+    void fetchImageFromCache(OutputStream stream, String image) throws Exception;
 
      void fetchImageCache(HttpServletRequest request,
                                  HttpServletResponse response) throws Exception;

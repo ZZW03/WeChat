@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee7f2edc-e8b1-4d48-8aaa-ef70d93b3c70" name="更改" comment="store">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b407d5b0-34bd-4e63-af9d-d70e78a2e475.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1eb5b67-87ce-48ef-b8ad-3b4b9ebf68e2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d1eb5b67-87ce-48ef-b8ad-3b4b9ebf68e2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/Components/SessionDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/Components/SessionDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/chat-fronent/src/views/message/MessageContent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/ConversationSessionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/ConversationSessionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/MessageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Dao/MessageMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/HistoryMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/HistoryMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/DBMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Listen/MessageOperateReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Listen/MessageOperateReceive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Send/MessageProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Mq/Send/MessageProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Service/impl/ConversationSessionServiceIml.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Service/impl/ConversationSessionServiceIml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Account/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Images/Service/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Images/Service/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/DBMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Message/Entiy/DBMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/test/java/com/zzw/ChatServiceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,6 +147,22 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ChatServiceApplication">
+    <configuration name="ChatServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chat-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zzw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zzw" />
+      <option name="MAIN_CLASS_NAME" value="com.zzw.ChatServiceApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ChatServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="chat-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzw.ChatServiceApplication" />
@@ -187,6 +200,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JUnit.ChatServiceApplicationTests.contextLoads" />
       <item itemvalue="npm.dev" />
       <item itemvalue="Spring Boot.TcpServiceApplication" />
       <item itemvalue="Spring Boot.ChatServiceApplication" />
@@ -194,8 +208,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ChatServiceApplication" />
-        <item itemvalue="Spring Boot.TcpServiceApplication" />
+        <item itemvalue="JUnit.ChatServiceApplicationTests.contextLoads" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="Spring Boot.TcpServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -241,6 +256,11 @@
       <workItem from="1713879869545" duration="9000" />
       <workItem from="1713879956325" duration="180000" />
       <workItem from="1713960407688" duration="7493000" />
+      <workItem from="1721634472790" duration="1412000" />
+      <workItem from="1721875054942" duration="146000" />
+      <workItem from="1721875435873" duration="74000" />
+      <workItem from="1722674475847" duration="177000" />
+      <workItem from="1722678045217" duration="2745000" />
     </task>
     <task id="LOCAL-00001" summary="tcp">
       <option name="closed" value="true" />
@@ -445,6 +465,17 @@
     <MESSAGE value="ack 前端" />
     <MESSAGE value="store" />
     <option name="LAST_COMMIT_MESSAGE" value="store" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/chat-service/src/main/java/com/zzw/Images/Service/ImageService.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -12,7 +12,6 @@ public class DBMessage {
     @TableId(value = "message_id")
     Long messageId;
     Object messageBody;
-
     Integer messageDelFlat = 0;
     String messageSendTime = String.valueOf(new Date());
 }
